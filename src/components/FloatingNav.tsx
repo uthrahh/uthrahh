@@ -68,17 +68,13 @@ function NavIcon({ name }: { name: IconName }) {
           <path d="M4.3 4.3l2.1 2.1M9.6 9.6l2.1 2.1M11.7 4.3l-2.1 2.1M6.4 9.6l-2.1 2.1" {...common} strokeLinecap="round" />
         </svg>
       );
-    // "article" is unused while the Articles nav entry above is commented
-    // out — its icon value was dropped from the `sections` array, which
-    // narrows `IconName` and makes this case unreachable per that type.
-    // Restore both together if Articles comes back.
-    // case "article":
-    //   return (
-    //     <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
-    //       <rect x="2" y="2" width="12" height="12" rx="1" {...common} />
-    //       <path d="M4.5 6h7M4.5 8.5h7M4.5 11h4" {...common} strokeLinecap="round" />
-    //     </svg>
-    //   );
+    case "article":
+      return (
+        <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
+          <rect x="2" y="2" width="12" height="12" rx="1" {...common} />
+          <path d="M4.5 6h7M4.5 8.5h7M4.5 11h4" {...common} strokeLinecap="round" />
+        </svg>
+      );
     case "globe":
       return (
         <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
