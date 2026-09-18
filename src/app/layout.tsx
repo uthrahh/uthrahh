@@ -6,6 +6,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { Footer } from "@/components/Footer";
 import { ThemeScript } from "@/components/ThemeScript";
 import { ProjectModalProvider } from "@/components/ProjectModalProvider";
+import { ResumeModalProvider } from "@/components/ResumeModalProvider";
 import { site } from "@/lib/data/site";
 
 const plexSans = IBM_Plex_Sans({
@@ -79,11 +80,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ThemeScript />
       </head>
       <body className="flex min-h-full flex-col antialiased">
-        <ProjectModalProvider>
-          <FloatingNav />
-          <ScrollToTop />
-          <main className="flex-1">{children}</main>
-        </ProjectModalProvider>
+        <ResumeModalProvider>
+          <ProjectModalProvider>
+            <FloatingNav />
+            <ScrollToTop />
+            <main className="flex-1">{children}</main>
+          </ProjectModalProvider>
+        </ResumeModalProvider>
         <Footer />
       </body>
     </html>

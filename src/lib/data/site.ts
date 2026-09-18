@@ -12,7 +12,12 @@ export const site = {
   substack: "https://substack.com/@uthrahhh",
   substackFeed: "https://uthrahhh.substack.com/feed",
   resumeAvailable: true,
-  resumeUrl: "/resume.pdf",
+  // Two real, role-targeted resumes — clicking "Resume" opens a popup to
+  // pick one, then downloads that exact file from /public.
+  resumeVariants: [
+    { short: "SDE", role: "Software Development", url: "/PavithraUthrah_SDE_Resume.pdf" },
+    { short: "D&AI", role: "Data & AI", url: "/PavithraUthrah_Data&AI_Resume.pdf" },
+  ],
   domain: "", // set once a custom domain exists; falls back to the deploy URL
   siteUrlFallback: "https://my-portfolio.vercel.app",
 };

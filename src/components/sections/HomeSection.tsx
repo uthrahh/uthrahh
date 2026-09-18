@@ -5,6 +5,7 @@ import { RoleCylinder } from "@/components/RoleCylinder";
 import { TextCylinder } from "@/components/TextCylinder";
 import { EmailCopy } from "@/components/EmailCopy";
 import { ProtectedPhoto } from "@/components/ProtectedPhoto";
+import { useResumeModal } from "@/components/ResumeModalProvider";
 import { site } from "@/lib/data/site";
 
 const SIGNATURE_STACK = [
@@ -27,6 +28,8 @@ const SIGNATURE_STACK = [
 const CONTACT_LINK_STYLE = "text-accent-strong hover:text-accent";
 
 export function HomeSection() {
+  const openResumeModal = useResumeModal();
+
   return (
     <section
       id="home"
@@ -101,13 +104,13 @@ export function HomeSection() {
               {site.resumeAvailable ? (
                 <>
                   <span className="text-border-strong">·</span>
-                  <a
-                    href={site.resumeUrl}
-                    download
+                  <button
+                    type="button"
+                    onClick={openResumeModal}
                     className={`transition-colors ${CONTACT_LINK_STYLE}`}
                   >
                     Resume ↗
-                  </a>
+                  </button>
                 </>
               ) : null}
             </div>
