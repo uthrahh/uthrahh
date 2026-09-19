@@ -10,14 +10,14 @@
    purpose: a focus indicator needs to read as visually distinct from the
    accent hue it's layered over, not just a brighter shade of it. */
 :root {
-  --paper: #f1e6d0;
-  --paper-raised: #f8f1e1;
-  --paper-sunken: #e6d7b8;
+  --paper: #f8f2e2;
+  --paper-raised: #fdfaf3;
+  --paper-sunken: #efe4c8;
   --ink: #2e112d;
   --ink-muted: #6b4f52;
   --ink-faint: #8f7a7c;
-  --border: #ddcba0;
-  --border-strong: #c4a876;
+  --border: #e6d7b0;
+  --border-strong: #cfb37e;
   --accent: #820233;
   --accent-strong: #ca283f;
   --accent-soft: rgba(130, 2, 51, 0.12);
@@ -26,8 +26,8 @@
   /* Glass-surface tokens: a translucent, blurred read of this theme's own
      --paper-raised, not a separate "glass theme" pasted over the page.
      Used selectively (see .glass below) — never a blanket treatment. */
-  --glass-bg: rgba(248, 241, 225, 0.72);
-  --glass-bg-active: rgba(248, 241, 225, 0.88);
+  --glass-bg: rgba(253, 250, 243, 0.72);
+  --glass-bg-active: rgba(253, 250, 243, 0.88);
   --glass-border: rgba(46, 17, 45, 0.12);
   --glass-border-active: rgba(130, 2, 51, 0.4);
 }

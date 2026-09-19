@@ -8,8 +8,8 @@ import { projects } from "@/lib/data/projects";
 import type { Project } from "@/lib/types";
 
 // Required first row, in this exact order, regardless of featured/array
-// order: AutCore, Women360, FMCG Sales Analytics Pipeline.
-const PRIORITY_ORDER = ["autcore", "women360", "reckitt-sales-analytics-pipeline"];
+// order: AutCore, Abov, Women360, FMCG Sales Analytics Pipeline.
+const PRIORITY_ORDER = ["autcore", "abov-hr", "women360", "reckitt-sales-analytics-pipeline"];
 
 export function ProjectsSection() {
   const openProject = useProjectModal();

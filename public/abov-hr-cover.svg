@@ -1,0 +1,69 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="800" height="450" fill="#f8f2e2"/>
+  <!-- browser chrome -->
+  <rect x="0" y="0" width="800" height="34" fill="#2e112d"/>
+  <circle cx="20" cy="17" r="5" fill="#e0705a"/>
+  <circle cx="38" cy="17" r="5" fill="#e0b25a"/>
+  <circle cx="56" cy="17" r="5" fill="#5ac26a"/>
+  <rect x="90" y="9" width="300" height="16" rx="8" fill="#4a2440"/>
+  <text x="110" y="21" font-size="10" fill="#cbb8c6">abovhr.vercel.app</text>
+
+  <!-- hero -->
+  <text x="40" y="76" font-size="24" font-weight="700" fill="#2e112d">Your career, jobs, and learning —</text>
+  <text x="40" y="104" font-size="24" font-weight="700" fill="#2e112d">in one place.</text>
+  <text x="40" y="130" font-size="12.5" fill="#6b4f52">Search real openings, see why a role fits you, and close the skill gaps that get you there.</text>
+
+  <!-- search bar -->
+  <rect x="40" y="150" width="500" height="34" rx="4" fill="#ffffff" stroke="#e6d7b0"/>
+  <text x="54" y="172" font-size="11" fill="#8f7a7c">Job title, skill, or company</text>
+  <rect x="550" y="150" width="130" height="34" rx="4" fill="#820233"/>
+  <text x="615" y="172" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">Find opportunities</text>
+
+  <!-- recently posted -->
+  <text x="40" y="222" font-size="13" font-weight="700" fill="#2e112d">Recently posted</text>
+
+  <g font-size="10.5">
+    <rect x="40" y="234" width="230" height="86" rx="4" fill="#ffffff" stroke="#e6d7b0"/>
+    <text x="52" y="254" font-weight="700" fill="#2e112d">Frontend Engineer</text>
+    <text x="52" y="270" fill="#6b4f52">Verdant Systems · Pune · Remote</text>
+    <rect x="52" y="280" width="38" height="16" rx="2" fill="#f1e0e6"/>
+    <text x="58" y="292" font-size="8.5" fill="#820233">React</text>
+    <rect x="94" y="280" width="58" height="16" rx="2" fill="#f1e0e6"/>
+    <text x="100" y="292" font-size="8.5" fill="#820233">TypeScript</text>
+
+    <rect x="285" y="234" width="230" height="86" rx="4" fill="#ffffff" stroke="#e6d7b0"/>
+    <text x="297" y="254" font-weight="700" fill="#2e112d">Data Analyst</text>
+    <text x="297" y="270" fill="#6b4f52">Northbridge Analytics · Bengaluru</text>
+    <rect x="297" y="280" width="30" height="16" rx="2" fill="#f1e0e6"/>
+    <text x="302" y="292" font-size="8.5" fill="#820233">SQL</text>
+    <rect x="331" y="280" width="52" height="16" rx="2" fill="#f1e0e6"/>
+    <text x="337" y="292" font-size="8.5" fill="#820233">Power BI</text>
+
+    <rect x="530" y="234" width="230" height="86" rx="4" fill="#ffffff" stroke="#e6d7b0"/>
+    <text x="542" y="254" font-weight="700" fill="#2e112d">ML Intern</text>
+    <text x="542" y="270" fill="#6b4f52">Northbridge Analytics · Hybrid</text>
+    <rect x="542" y="280" width="42" height="16" rx="2" fill="#f1e0e6"/>
+    <text x="548" y="292" font-size="8.5" fill="#820233">Python</text>
+    <rect x="588" y="280" width="80" height="16" rx="2" fill="#f1e0e6"/>
+    <text x="594" y="292" font-size="8.5" fill="#820233">Fresher-friendly</text>
+  </g>
+
+  <!-- feature strip -->
+  <g font-size="10.5" fill="#6b4f52">
+    <rect x="40" y="340" width="170" height="60" rx="4" fill="#fdfaf3" stroke="#e6d7b0"/>
+    <text x="52" y="362" font-weight="700" fill="#2e112d">Build skills</text>
+    <text x="52" y="378">Structured roadmaps</text>
+
+    <rect x="222" y="340" width="170" height="60" rx="4" fill="#fdfaf3" stroke="#e6d7b0"/>
+    <text x="234" y="362" font-weight="700" fill="#2e112d">Plan your career</text>
+    <text x="234" y="378">Assessment &amp; paths</text>
+
+    <rect x="404" y="340" width="170" height="60" rx="4" fill="#fdfaf3" stroke="#e6d7b0"/>
+    <text x="416" y="362" font-weight="700" fill="#2e112d">For employers</text>
+    <text x="416" y="378">Post jobs, match scores</text>
+
+    <rect x="586" y="340" width="174" height="60" rx="4" fill="#fdfaf3" stroke="#e6d7b0"/>
+    <text x="598" y="362" font-weight="700" fill="#2e112d">Improve your profile</text>
+    <text x="598" y="378">Better match scores</text>
+  </g>
+</svg>

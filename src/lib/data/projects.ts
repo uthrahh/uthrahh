@@ -84,6 +84,62 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "abov-hr",
+    title: "Abov: Career & Hiring Platform",
+    summary:
+      "A career platform unifying job search, career guidance, and skill-building for candidates with a hiring pipeline and match scoring for employers.",
+    categories: ["Full-Stack", "Software Engineering"],
+    technologies: ["Next.js 16", "TypeScript", "Tailwind CSS", "PostgreSQL", "Prisma", "Auth.js"],
+    role: "Sole developer",
+    context: "Independent product, in development",
+    featured: true,
+    status: "Product in development",
+    websiteUrl: "https://abovhr.vercel.app",
+    cover: {
+      kind: "website",
+      src: "/abov-hr-cover.svg",
+      alt: "Abov homepage: job search, recently posted roles, and career-guidance features",
+      aspect: "16/9",
+    },
+    links: [
+      { label: "Repository", href: "https://github.com/uthrahh/AbovHR", kind: "repo" },
+    ],
+    sections: [
+      {
+        heading: "Problem",
+        body: [
+          "Job search, understanding whether a role actually fits, closing the skill gaps standing in the way, and — on the other side — hiring against transparent match data instead of guesswork are typically scattered across separate tools with no shared thread between them.",
+        ],
+      },
+      {
+        heading: "What it does",
+        body: [
+          "Candidate side: search real openings by skill/location/work mode, a career-guidance assessment surfacing potential role paths, and structured skill-building roadmaps toward a target role.",
+          "Employer side: post jobs, track applicants through a hiring pipeline, and see match scores between candidates and roles instead of manually screening resumes.",
+          "Role-based access spans four account types — Candidate, Employer, Institution admin, and platform Admin — each with a distinct view into the same underlying data.",
+        ],
+      },
+      {
+        heading: "Architecture",
+        body: [
+          "Next.js 16 (App Router, Turbopack) with a PostgreSQL database via Prisma, and Auth.js v5 handling credentials-based auth with JWT sessions across all four roles.",
+        ],
+      },
+      {
+        heading: "Engineering practice",
+        body: [
+          "Documented beyond the code itself: a system-architecture doc (schema, RBAC model, API surface, and what's explicitly not implemented yet), a data-flow and third-party-dependency inventory, an accessibility/SEO/performance/security self-audit, a legal and IP risk register, and a deployment checklist — the kind of documentation set usually associated with a team handoff, written solo.",
+        ],
+      },
+      {
+        heading: "Status",
+        body: [
+          "Under active development, not yet deployed to production. The live demo is seeded with fictional job listings, companies, and accounts for evaluation only — real data has never touched it.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "aic-erp",
     title: "Startup Incubation ERP",
     summary:
