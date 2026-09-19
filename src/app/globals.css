@@ -1,67 +1,76 @@
 @import "tailwindcss";
 
+/* Palette: a 5-step dark-plum -> wine -> crimson -> red -> coral ramp.
+   #2e112d (darkest) anchors light-theme text and dark-theme surfaces;
+   #540032 (wine) is dark theme's stronger border; #820233/#ca283f (light
+   theme's accent pair) and #ca283f/#f0443a (dark theme's accent pair)
+   carry the interactive color — deeper for beige, brighter for black, so
+   both pairs hold real contrast against their own background rather than
+   using one fixed hex on both. --focus-ring stays an unrelated blue on
+   purpose: a focus indicator needs to read as visually distinct from the
+   accent hue it's layered over, not just a brighter shade of it. */
 :root {
-  --paper: #f6f4ee;
-  --paper-raised: #fbfaf6;
-  --paper-sunken: #eeebe2;
-  --ink: #16181a;
-  --ink-muted: #55564f;
-  --ink-faint: #6f7066;
-  --border: #dbd7ca;
-  --border-strong: #c3bfae;
-  --accent: #cc5500;
-  --accent-strong: #e07a1f;
-  --accent-soft: rgba(204, 85, 0, 0.12);
+  --paper: #f1e6d0;
+  --paper-raised: #f8f1e1;
+  --paper-sunken: #e6d7b8;
+  --ink: #2e112d;
+  --ink-muted: #6b4f52;
+  --ink-faint: #8f7a7c;
+  --border: #ddcba0;
+  --border-strong: #c4a876;
+  --accent: #820233;
+  --accent-strong: #ca283f;
+  --accent-soft: rgba(130, 2, 51, 0.12);
   --accent-ink: #ffffff;
   --focus-ring: #2b6cb0;
   /* Glass-surface tokens: a translucent, blurred read of this theme's own
      --paper-raised, not a separate "glass theme" pasted over the page.
      Used selectively (see .glass below) — never a blanket treatment. */
-  --glass-bg: rgba(251, 250, 246, 0.72);
-  --glass-bg-active: rgba(251, 250, 246, 0.88);
-  --glass-border: rgba(22, 24, 26, 0.1);
-  --glass-border-active: rgba(204, 85, 0, 0.4);
+  --glass-bg: rgba(248, 241, 225, 0.72);
+  --glass-bg-active: rgba(248, 241, 225, 0.88);
+  --glass-border: rgba(46, 17, 45, 0.12);
+  --glass-border-active: rgba(130, 2, 51, 0.4);
 }
 
 :root[data-theme="dark"] {
-  --paper: #131310;
-  --paper-raised: #1a1a15;
-  --paper-sunken: #0d0d0b;
-  --ink: #efeee6;
-  --ink-muted: #a9a89b;
-  --ink-faint: #85847a;
-  --border: #2c2b24;
-  --border-strong: #3c3b31;
-  --accent: #cc5500;
-  --accent-strong: #e07a1f;
-  --accent-soft: rgba(204, 85, 0, 0.16);
+  --paper: #0a0908;
+  --paper-raised: #1c0f14;
+  --paper-sunken: #050404;
+  --ink: #f1e6d0;
+  --ink-muted: #b7a695;
+  --ink-faint: #8a7a6c;
+  --border: #2e1a20;
+  --border-strong: #4a1f2c;
+  --accent: #ca283f;
+  --accent-strong: #f0443a;
+  --accent-soft: rgba(202, 40, 63, 0.18);
   --accent-ink: #ffffff;
   --focus-ring: #6ca9e0;
-  --glass-bg: rgba(26, 26, 21, 0.62);
-  --glass-bg-active: rgba(26, 26, 21, 0.82);
+  --glass-bg: rgba(28, 15, 20, 0.62);
+  --glass-bg-active: rgba(28, 15, 20, 0.82);
   --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-border-active: rgba(204, 85, 0, 0.45);
+  --glass-border-active: rgba(202, 40, 63, 0.45);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #131310;
-    --paper-raised: #1a1a15;
-    --paper-sunken: #0d0d0b;
-    --ink: #efeee6;
-    --ink-muted: #a9a89b;
-    --ink-faint: #85847a;
-    --border: #2c2b24;
-    --border-strong: #3c3b31;
-    --accent: #cc5500;
-    --accent-strong: #e07a1f;
-    --accent-soft: rgba(204, 85, 0, 0.16);
+    --paper: #0a0908;
+    --paper-raised: #1c0f14;
+    --paper-sunken: #050404;
+    --ink: #f1e6d0;
+    --ink-muted: #b7a695;
+    --ink-faint: #8a7a6c;
+    --border: #2e1a20;
+    --border-strong: #4a1f2c;
+    --accent: #ca283f;
+    --accent-strong: #f0443a;
+    --accent-soft: rgba(202, 40, 63, 0.18);
     --accent-ink: #ffffff;
     --focus-ring: #6ca9e0;
-    --glass-bg: rgba(26, 26, 21, 0.62);
-    --glass-bg-active: rgba(26, 26, 21, 0.82);
+    --glass-bg: rgba(28, 15, 20, 0.62);
+    --glass-bg-active: rgba(28, 15, 20, 0.82);
     --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-border-active: rgba(204, 85, 0, 0.45);
+    --glass-border-active: rgba(202, 40, 63, 0.45);
   }
 }
 
@@ -162,7 +171,7 @@ body {
   --ink-faint: rgba(255, 255, 255, 0.52);
   --border: rgba(255, 255, 255, 0.16);
   --border-strong: rgba(255, 255, 255, 0.32);
-  --accent-soft: rgba(204, 85, 0, 0.18);
+  --accent-soft: rgba(202, 40, 63, 0.18);
 }
 
 /* Restrained glass surface: a subtle bordered, blurred layer — used

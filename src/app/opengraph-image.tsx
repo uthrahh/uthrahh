@@ -14,19 +14,19 @@ export default function OGImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#f6f4ee",
+          background: "#f1e6d0",
           padding: "80px",
           fontFamily: "serif",
         }}
       >
-        <div style={{ display: "flex", fontSize: 28, color: "#8a5423", letterSpacing: 4 }}>
+        <div style={{ display: "flex", fontSize: 28, color: "#820233", letterSpacing: 4 }}>
           {site.title.toUpperCase()}
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", fontSize: 72, color: "#16181a", fontWeight: 600 }}>
+          <div style={{ display: "flex", fontSize: 72, color: "#2e112d", fontWeight: 600 }}>
             {site.name}
           </div>
-          <div style={{ display: "flex", fontSize: 30, color: "#55564f", marginTop: 24, maxWidth: 900 }}>
+          <div style={{ display: "flex", fontSize: 30, color: "#6b4f52", marginTop: 24, maxWidth: 900 }}>
             {site.tagline}
           </div>
         </div>
