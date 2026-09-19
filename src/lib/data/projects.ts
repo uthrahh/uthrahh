@@ -674,48 +674,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "budget-tracker",
-    title: "Budget Tracker",
-    summary:
-      "A shared-expense and settlement SaaS product under active development, with WhatsApp-based transaction capture, budgets, categories, and refunds, containerized with Docker.",
-    categories: ["Software Engineering"],
-    technologies: ["Python", "FastAPI", "PostgreSQL", "Alembic", "Docker", "WhatsApp integration"],
-    role: "Sole developer",
-    context: "Independent product, in development",
-    featured: false,
-    status: "Product in development",
-    cover: {
-      kind: "screenshot",
-      alt: "Budget Tracker dashboard showing shared expenses and settlements",
-      aspect: "4/3",
-    },
-    links: [
-      { label: "Repository", href: "https://github.com/uthrahh/Budget-Tracker", kind: "repo" },
-    ],
-    sections: [
-      {
-        heading: "What it does",
-        body: [
-          "A FastAPI backend for tracking personal and shared expenses: budgets, spending categories, transactions, people, settlements between people, and refunds, with reporting and export. Being built as a standalone product, not a one-off script.",
-          "A WhatsApp listener mirrors the pattern used in the AIC worklog project: transactions can be captured from natural-language messages rather than requiring manual form entry every time.",
-        ],
-      },
-      {
-        heading: "Engineering",
-        body: [
-          "Schema-versioned with Alembic migrations, a service-layer split (auth, budget, category, transaction, settlement, refund, reporting, and export services kept independent of the route handlers), and a pytest suite covering budgets, parsing, refunds, settlements, and transactions.",
-          "Fully containerized with Docker and docker-compose for local and deployment parity.",
-        ],
-      },
-      {
-        heading: "Status",
-        body: [
-          "Core backend functionality is built and tested; still under active, ongoing development as a product rather than a finished, closed project.",
-        ],
-      },
-    ],
-  },
-  {
     slug: "data-pipeline-sentinel",
     title: "Data Pipeline Sentinel (UI Concept)",
     summary:

@@ -11,7 +11,7 @@ const sections = [
   { id: "skills", label: "Skills", icon: "layers" },
   { id: "education", label: "Education", icon: "cap" },
   { id: "interests", label: "Interests", icon: "spark" },
-  { id: "articles", label: "Articles", icon: "article" },
+  // { id: "articles", label: "Articles", icon: "article" },
   { id: "languages", label: "Languages", icon: "globe" },
 ] as const;
 
@@ -68,13 +68,17 @@ function NavIcon({ name }: { name: IconName }) {
           <path d="M4.3 4.3l2.1 2.1M9.6 9.6l2.1 2.1M11.7 4.3l-2.1 2.1M6.4 9.6l-2.1 2.1" {...common} strokeLinecap="round" />
         </svg>
       );
-    case "article":
-      return (
-        <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
-          <rect x="2" y="2" width="12" height="12" rx="1" {...common} />
-          <path d="M4.5 6h7M4.5 8.5h7M4.5 11h4" {...common} strokeLinecap="round" />
-        </svg>
-      );
+    // "article" is unused while the Articles nav entry above is commented
+    // out — its icon value was dropped from the `sections` array, which
+    // narrows `IconName` and makes this case unreachable per that type.
+    // Restore both together if Articles comes back.
+    // case "article":
+    //   return (
+    //     <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
+    //       <rect x="2" y="2" width="12" height="12" rx="1" {...common} />
+    //       <path d="M4.5 6h7M4.5 8.5h7M4.5 11h4" {...common} strokeLinecap="round" />
+    //     </svg>
+    //   );
     case "globe":
       return (
         <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
@@ -166,8 +170,8 @@ export function FloatingNav() {
       </nav>
 
       {/* Mobile / tablet: floating bottom bar. More destinations than fit in
-          one row now that Interests/Articles/Languages have nav icons too,
-          so the bar scrolls horizontally within itself rather than either
+          one row now that Interests/Languages have nav icons too, so the
+          bar scrolls horizontally within itself rather than either
           compressing icons to illegible sizes or overflowing the page. */}
       <nav
         aria-label="Primary"

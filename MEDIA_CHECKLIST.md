@@ -43,7 +43,6 @@ screenshots, 4:3 for everything else).
 | AI Data Operations Assistant | Cover | 4:3 | Streamlit chat interface screenshot | `public/media/projects/ai-data-engineering-assistant/cover.jpg` |
 | Capital Allocation & Risk Optimization | Cover | 16:9 | Optimizer output (code/terminal screenshot) | `public/media/projects/capital-allocation-risk-optimization/cover.jpg` |
 | Capital Allocation & Risk Optimization | Gallery 1 | 4:3 | Risk-adjusted return distribution chart | `public/media/projects/capital-allocation-risk-optimization/gallery-1.jpg` |
-| Budget Tracker | Cover | 4:3 | Dashboard: expenses and settlements | `public/media/projects/budget-tracker/cover.jpg` |
 | Data Pipeline Sentinel | Cover | 4:3 | UI concept: KPI cards and pipeline table | `public/media/projects/data-pipeline-sentinel/cover.jpg` |
 
 ## Experience workstreams

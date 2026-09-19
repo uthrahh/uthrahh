@@ -4,7 +4,7 @@ import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { EducationSection } from "@/components/sections/EducationSection";
 import { InterestsSection } from "@/components/sections/InterestsSection";
-import { ArticlesSection } from "@/components/sections/ArticlesSection";
+// import { ArticlesSection } from "@/components/sections/ArticlesSection";
 import { LanguagesSection } from "@/components/sections/LanguagesSection";
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
       <SkillsSection />
       <EducationSection />
       <InterestsSection />
-      <ArticlesSection />
+      {/* <ArticlesSection /> */}
       <LanguagesSection />
     </>
   );
