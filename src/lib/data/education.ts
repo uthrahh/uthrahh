@@ -7,6 +7,70 @@ import { clubLeadership } from "@/lib/data/leadership";
 // missing `src` is safe — it just shows a placeholder until then).
 
 export const education: EducationEntry[] = [
+  // ============================================================
+  // TEMPLATE — copy a new education entry from here. No coding needed.
+  // ============================================================
+  // HOW TO ADD A NEW EDUCATION ENTRY:
+  // 1. Select everything inside the comment block directly below
+  //    this note (the whole { ... } object, including the opening
+  //    and closing braces and the trailing comma).
+  // 2. Paste it anywhere in this array.
+  // 3. Delete the two comment markers around your PASTED COPY only.
+  //    Leave this original template exactly as it is.
+  // 4. Replace every <LIKE THIS> placeholder with your own text.
+  // 5. Save the file. Done — no other files need to change.
+  /*
+  {
+    institution: "<Institution Name>",
+
+    // OPTIONAL — delete this line if the institution has no website.
+    // institutionUrl: "https://example.com",
+
+    // OPTIONAL — delete this line for a school entry that uses
+    // `levels` instead (see below).
+    // degree: "<B.Tech. in Computer Science and Engineering>",
+
+    // OPTIONAL — delete this line if there's no clean start year
+    // (school entries below often only set `end`).
+    // start: "<2023>",
+
+    // Always required. Use "Present"/"May 2027" style text for an
+    // ongoing degree, or "Graduated <year>" for a finished one.
+    end: "<May 2027>",
+
+    // Clubs, leadership roles, committees, etc. Leave the array
+    // empty ([]) if there are none to list.
+    activities: [
+      { label: "<Role - Organization/Club Name>" },
+      // Add `history: [...]` instead of nothing on a line like this
+      // one only if you need an expandable tenure history for that
+      // specific activity (see clubLeadership above for the shape:
+      // an array of { org, role, start, end, detail?, photo? }).
+      // Most activities don't need this — a plain label is enough.
+    ],
+
+    // Courses taken. Leave as [] if not applicable (e.g. school-level
+    // entries usually leave this empty).
+    coursework: ["<Course 1>", "<Course 2>"],
+
+    // OPTIONAL — only for a school-style entry with board exam
+    // results instead of (or alongside) `degree`. Delete this whole
+    // block for a university entry.
+    // levels: [
+    //   { grade: "<Grade 12>", board: "<ISC>", result: "<80%>" },
+    // ],
+
+    // OPTIONAL — delete this whole block if there are no photos yet.
+    // Renders as labeled placeholders until real image files exist
+    // under /public. `kind` is typically "event" for these.
+    // photos: [
+    //   { kind: "event", alt: "<Describe this photo>", aspect: "4/3" },
+    // ],
+  },
+  */
+  // ============================================================
+  // END TEMPLATE — real education entries start below
+  // ============================================================
   {
     institution: "Vellore Institute of Technology (VIT), Chennai",
     institutionUrl: "https://chennai.vit.ac.in/",
@@ -53,6 +117,31 @@ export const education: EducationEntry[] = [
 ];
 
 export const certifications: CertificationEntry[] = [
+  // ============================================================
+  // TEMPLATE — copy a new certification from here. No coding needed.
+  // ============================================================
+  // HOW TO ADD A NEW CERTIFICATION:
+  // 1. Select everything inside the comment block directly below
+  //    this note (the whole { ... } object, including the opening
+  //    and closing braces and the trailing comma).
+  // 2. Paste it anywhere in this array.
+  // 3. Delete the two comment markers around your PASTED COPY only.
+  //    Leave this original template exactly as it is.
+  // 4. Replace every <LIKE THIS> placeholder with your own text.
+  // 5. Save the file. Done — no other files need to change.
+  /*
+  {
+    name: "<Certification Name>",
+
+    // OPTIONAL — delete any of these three lines you don't have.
+    // issuer: "<Issuing Organization, e.g. Google, via Coursera>",
+    // date: "<Month Year>",
+    // url: "<Link to the credential/badge>",
+  },
+  */
+  // ============================================================
+  // END TEMPLATE — real certifications start below
+  // ============================================================
   {
     name: "Google Data Analytics Professional Certificate",
     issuer: "Google, via Coursera",

@@ -1,6 +1,99 @@
 import type { ExperienceItem } from "@/lib/types";
 
 export const experience: ExperienceItem[] = [
+  // ============================================================
+  // TEMPLATE — copy a new job/internship from here. No coding needed.
+  // ============================================================
+  // HOW TO ADD A NEW EXPERIENCE:
+  // 1. Select everything inside the comment block directly below
+  //    this note (the whole { ... } object, including the opening
+  //    and closing braces and the trailing comma).
+  // 2. Paste it anywhere in this array — most recent jobs usually
+  //    go first, but order is up to you.
+  // 3. Delete the two comment markers around your PASTED COPY only.
+  //    Leave this original template exactly as it is.
+  // 4. Replace every <LIKE THIS> placeholder with your own text.
+  // 5. Save the file. Done — no other files need to change.
+  /*
+  {
+    // Company / organization name, as it should display.
+    org: "<Company Name>",
+
+    // OPTIONAL — delete this line if the org has no website.
+    // orgUrl: "https://example.com",
+
+    // Your job title, e.g. "Data Engineer", "Software Engineer Intern".
+    role: "<Your Role>",
+
+    // e.g. "Internship", "Full-time", "Part-time", "Contract".
+    employmentType: "Internship",
+
+    // e.g. "On-site", "Remote", "Hybrid".
+    workMode: "On-site",
+
+    city: "<City>",
+
+    // Short duration label shown on the card, e.g. "3mo", "6mo", "1yr".
+    duration: "<3mo>",
+
+    // Start/end as display text, e.g. "July 2026" / "September 2026".
+    // Use "Present" as `end` if this is your current role.
+    start: "<Month Year>",
+    end: "<Month Year>",
+
+    // OPTIONAL — delete this whole block if you'd rather only show the
+    // bullet groups below with no separate intro paragraph.
+    // summary: "<One or two sentences summarizing this role.>",
+
+    // Bullet points, clustered into labeled groups so a longer list
+    // still scans quickly (e.g. "Delivered" vs "Platform & exposure").
+    // Wrap key terms in **double asterisks** to bold them.
+    highlightGroups: [
+      {
+        label: "Delivered",
+        items: [
+          "<A concrete thing you built or shipped, with **key terms** bolded.>",
+        ],
+      },
+    ],
+
+    // Zero or more focused pieces of work within this role. Each one
+    // can optionally link to a full case study in projects.ts via
+    // `projectSlug` (must exactly match that project's `slug`).
+    workstreams: [
+      {
+        title: "<Workstream Title>",
+        // One line, shown in the compact list view.
+        oneLiner: "<A one-sentence summary of this workstream.>",
+        technologies: ["<Tech 1>", "<Tech 2>"],
+
+        // OPTIONAL — delete if this workstream has no matching full
+        // project case study in projects.ts.
+        // projectSlug: "<matching-project-slug>",
+
+        // OPTIONAL — shown only when the workstream is expanded.
+        // context: "<What was the situation/problem before this work?>",
+        // contribution: "<What exactly did you build or do?>",
+
+        // OPTIONAL — small images shown when this workstream is expanded.
+        // `kind` picks the placeholder shown until a real image exists:
+        // "screenshot" | "website" | "code" | "architecture" |
+        // "dashboard" | "product" | "team" | "event" | "documentation" |
+        // "portrait". Leave `src` out until the file exists in /public.
+        // media: [
+        //   { kind: "code", alt: "<Describe this image>", aspect: "4/3" },
+        // ],
+      },
+    ],
+
+    // Plain list of technologies used across the whole role — shown
+    // as chips at the bottom of the card.
+    technologies: ["<Tech 1>", "<Tech 2>", "<Tech 3>"],
+  },
+  */
+  // ============================================================
+  // END TEMPLATE — real experience entries start below
+  // ============================================================
   {
     org: "KaarTech",
     orgUrl: "https://www.kaartech.com",

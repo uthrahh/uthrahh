@@ -7,6 +7,129 @@ import type { Project } from "@/lib/types";
 // placeholder for any asset with no `src` (or a `src` that 404s), so this is
 // the only edit needed per photo — no other code changes.
 export const projects: Project[] = [
+  // ============================================================
+  // TEMPLATE — copy a new project from here. No coding needed.
+  // ============================================================
+  // HOW TO ADD A NEW PROJECT:
+  // 1. Select everything inside the comment block directly below
+  //    this note (the whole { ... } object, including the opening
+  //    and closing braces and the trailing comma).
+  // 2. Paste it anywhere in this array — right here, right above
+  //    the closing "]" at the bottom, wherever.
+  // 3. Delete the two comment markers around your PASTED COPY only.
+  //    Leave this original template exactly as it is, so it's still
+  //    here the next time you need it.
+  // 4. Replace every <LIKE THIS> placeholder with your own text.
+  // 5. Save the file. That's the whole process — no other files or
+  //    code need to change.
+  /*
+  {
+    // A short, web-safe id — lowercase, words separated by hyphens,
+    // no spaces. Must be unique. Used internally to link things
+    // (like a workstream in experience.ts) to this project.
+    slug: "<my-new-project>",
+
+    // The project's display title (card heading + case-study heading).
+    title: "<My New Project>",
+
+    // One to two sentences: the "elevator pitch," shown on the card
+    // and at the top of the case study.
+    summary: "<What is this project, in one or two sentences?>",
+
+    // One or more tags shown at the top of the project card.
+    // Pick any of: "Data Engineering" | "AI & GenAI" |
+    // "Software Engineering" | "Full-Stack" | "Data Analytics & ML"
+    categories: ["Software Engineering"],
+
+    // Plain list of technologies/tools used — shown as chips.
+    technologies: ["<Tech 1>", "<Tech 2>", "<Tech 3>"],
+
+    // Your role, e.g. "Sole developer", "Backend engineer (solo)",
+    // "Team project".
+    role: "<Sole developer>",
+
+    // Short context for where/why this was built, e.g.
+    // "Independent project", "Hackathon", or an internship name.
+    context: "<Independent project>",
+
+    // true = appears earlier/more prominently in the grid.
+    // false = still shown, just not prioritized.
+    featured: false,
+
+    // Pick exactly one of: "Shipped internally" | "In progress" |
+    // "Proof of concept" | "Completed" | "Award winner" |
+    // "Product in development"
+    status: "Completed",
+
+    // OPTIONAL — delete this whole block if it doesn't apply.
+    // Only for a hackathon/competition win — shows an award ribbon
+    // on the card.
+    // achievement: {
+    //   rank: "1st Place",
+    //   event: "<Hackathon name>",
+    //   organizer: "<Who ran it>",
+    //   year: "<2026>",
+    // },
+
+    // OPTIONAL — delete this line if there's no live/hosted version.
+    // When set, a "Website" link appears automatically in the case
+    // study — no other changes needed.
+    // websiteUrl: "https://example.com",
+
+    // Links shown in the case study. `kind` is one of:
+    // "repo" | "docs" | "demo" | "data"
+    links: [
+      { label: "Repository", href: "https://github.com/<you>/<repo>", kind: "repo" },
+    ],
+
+    // The case-study body: one or more sections, each with a
+    // heading and one or more paragraphs. Each string in `body` is
+    // its own paragraph — list more than one and they render as a
+    // bulleted list instead of paragraphs.
+    sections: [
+      {
+        heading: "Problem",
+        body: ["<What problem was this project solving?>"],
+      },
+      {
+        heading: "Solution",
+        body: ["<What did you build, and how does it work?>"],
+      },
+    ],
+
+    // OPTIONAL — delete this whole block if you don't have concrete
+    // numbers to show. Renders as a small stats row in the case study.
+    // metrics: [
+    //   { label: "<Metric name>", value: "<Metric value>" },
+    // ],
+
+    // The main image on the card and at the top of the case study.
+    // `kind` picks the placeholder icon/label shown until a real
+    // image exists: "screenshot" | "website" | "code" |
+    // "architecture" | "dashboard" | "product" | "team" | "event" |
+    // "documentation" | "portrait"
+    // `aspect` is one of: "16/9" | "4/3" | "1/1" | "3/2" | "3/4"
+    // Leave `src` out entirely until the real image file exists
+    // under /public — a labeled placeholder shows automatically
+    // until then, so nothing ever looks broken in the meantime.
+    cover: {
+      kind: "screenshot",
+      // src: "/my-new-project-cover.png",  // add once the file exists in /public
+      alt: "<Describe what this image shows, for accessibility>",
+      aspect: "4/3",
+    },
+
+    // OPTIONAL — delete this whole block if there are no extra
+    // images. Same shape as `cover`, just a list — add as many as
+    // you like.
+    // gallery: [
+    //   { kind: "screenshot", alt: "<Describe this image>", aspect: "4/3" },
+    // ],
+  },
+  */
+  // ============================================================
+  // END TEMPLATE — real projects start below
+  // ============================================================
   {
     slug: "autcore",
     title: "AutCore",
