@@ -854,31 +854,112 @@ export const projects: Project[] = [
   },
   {
     slug: "data-pipeline-sentinel",
-    title: "Data Pipeline Sentinel (UI Concept)",
+    title: "Sentinel: Databricks Pipeline Observability & Remediation Platform",
     summary:
-      "A team-built proof of concept for a data-pipeline monitoring dashboard: KPI cards, a pipeline status table, and tabbed navigation.",
-    categories: ["Data Analytics & ML"],
-    technologies: ["React", "Vite"],
-    role: "Team project / POC",
-    context: "Data Engineering Internship, KaarTech",
-    featured: false,
-    status: "Proof of concept",
+      "A full-stack pipeline observability platform with live Databricks integration and a working, human-approved automated remediation loop.",
+    categories: ["Data Engineering", "Full-Stack"],
+    technologies: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "FastAPI",
+      "Python",
+      "Databricks SDK",
+      "Databricks Jobs API",
+      "Delta Lake",
+    ],
+    role: "Full-stack engineer (solo)",
+    context: "Originated as a KaarTech internship proof of concept, independently rebuilt since",
+    featured: true,
+    status: "In progress",
     cover: {
       kind: "dashboard",
-      src: "/data-pipeline-sentinel-cover.svg",
-      alt: "Data Pipeline Sentinel UI concept with KPI cards and pipeline status table",
-      aspect: "4/3",
+      alt: "Sentinel pipeline observability dashboard showing live Databricks job monitoring and incident management",
+      aspect: "16/9",
     },
     links: [
-      { label: "Repository", href: "https://github.com/uthrahh/data_pipeline_sentinel", kind: "repo" },
+      { label: "Repository", href: "https://github.com/uthrahh/Data-Pipeline-Sentinel", kind: "repo" },
     ],
     sections: [
       {
-        heading: "What it is",
+        heading: "Problem",
         body: [
-          "A team-built proof of concept exploring what a pipeline-monitoring dashboard could look like: a header, tabbed navigation, KPI summary cards, and a pipeline status table.",
-          "Frontend-focused, with no backend or live data behind it yet. It's an interface concept rather than a working monitoring tool, built with the team to explore the layout and information hierarchy a real version would need.",
+          "Databricks pipeline failures typically require someone to notice a failed job, dig through logs, and manually decide whether and how to rerun it, with no structured record connecting the failure to how it was fixed.",
         ],
+      },
+      {
+        heading: "Architecture",
+        body: [
+          "A Next.js 16 / React 19 / TypeScript frontend talks to a purpose-built FastAPI backend, which integrates with a real Databricks workspace through the official Databricks SDK — not a mocked or simulated data source.",
+        ],
+      },
+      {
+        heading: "What's built and verified working",
+        body: [
+          "Live pipeline monitoring pulls real job and run data from the Databricks Jobs API: job lists, run history, and KPIs (execution counts, success rate, durations) computed from actual runs, not sample data.",
+          "A working incident-management loop: failed job runs are detected and tracked in a Delta table the backend owns; a human can approve or reject an incident; approving triggers an actual Databricks job rerun via the Jobs API, and the system polls the real run and auto-resolves the incident once it completes. This full lifecycle — detect a real failure, approve it, watch Databricks execute the rerun, watch it auto-resolve — was run end-to-end against a live workspace.",
+        ],
+      },
+      {
+        heading: "Scope, honestly stated",
+        body: [
+          "This is governed, automated pipeline monitoring and remediation, not an AI-agent system: there's no LLM or agent performing investigation or diagnosis today, by deliberate choice, to keep the backend minimal and everything provably real rather than a fabricated AI narrative. A multi-agent/LLM investigation layer is designed and documented but not built.",
+        ],
+      },
+      {
+        heading: "Status",
+        body: [
+          "Not deployed publicly yet — the frontend runs locally via `npm run dev` and the backend locally via `uvicorn`; neither is deployed to Vercel or Databricks Apps.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "task-goal-tracker",
+    title: "Task Management & Goal Tracking SaaS",
+    summary:
+      "A cross-platform SaaS unifying tasks, habits, goals, milestones, notes, calendar, notifications, and focus sessions in one place.",
+    categories: ["Full-Stack", "Software Engineering"],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "React Native",
+      "Expo",
+      "Supabase",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Google Calendar API",
+      "Web Push",
+      "Stripe",
+    ],
+    role: "Sole developer",
+    context: "Independent project, in development",
+    featured: false,
+    status: "Product in development",
+    cover: {
+      kind: "product",
+      alt: "Task Management & Goal Tracking SaaS app showing unified tasks, habits, and goals",
+      aspect: "4/3",
+    },
+    links: [],
+    sections: [
+      {
+        heading: "Problem",
+        body: [
+          "Tasks, habits, goals, notes, and calendar commitments are usually split across separate single-purpose apps with no shared thread connecting daily actions to longer-term goals.",
+        ],
+      },
+      {
+        heading: "What it does",
+        body: [
+          "Unifies tasks, habits, goals, milestones, notes, calendar, notifications, and focus sessions into one cross-platform app, built for both web (Next.js) and mobile (React Native/Expo).",
+        ],
+      },
+      {
+        heading: "Status",
+        body: ["In active development."],
       },
     ],
   },
