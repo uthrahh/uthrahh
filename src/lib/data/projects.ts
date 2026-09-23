@@ -815,7 +815,7 @@ export const projects: Project[] = [
     slug: "data-pipeline-sentinel",
     title: "Sentinel: Databricks Pipeline Observability & Remediation Platform",
     summary:
-      "A full-stack pipeline observability platform with live Databricks integration and a working, human-approved automated remediation loop.",
+      "A full-stack pipeline observability platform, deployed as two Databricks Apps, with live Databricks Jobs API monitoring and a working, human-approved automated remediation loop.",
     categories: ["Data Engineering", "Full-Stack"],
     technologies: [
       "Next.js 16",
@@ -826,12 +826,16 @@ export const projects: Project[] = [
       "Python",
       "Databricks SDK",
       "Databricks Jobs API",
+      "Databricks Apps",
       "Delta Lake",
+      "Unity Catalog",
+      "SQL Warehouse / Statement Execution API",
+      "OAuth 2.0 (service-principal token exchange)",
     ],
     role: "Full-stack engineer (solo)",
     context: "Originated as a KaarTech internship proof of concept, independently rebuilt since",
     featured: true,
-    status: "In progress",
+    status: "Shipped internally",
     cover: {
       kind: "dashboard",
       alt: "Sentinel pipeline observability dashboard showing live Databricks job monitoring and incident management",
@@ -839,6 +843,8 @@ export const projects: Project[] = [
     },
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/Data-Pipeline-Sentinel", kind: "repo" },
+      { label: "Frontend README", href: "https://github.com/uthrahh/Data-Pipeline-Sentinel/blob/main/Frontend/README.md", kind: "docs" },
+      { label: "Backend README", href: "https://github.com/uthrahh/Data-Pipeline-Sentinel/blob/main/Backend/README.md", kind: "docs" },
     ],
     sections: [
       {
@@ -850,28 +856,39 @@ export const projects: Project[] = [
       {
         heading: "Architecture",
         body: [
-          "A Next.js 16 / React 19 / TypeScript frontend talks to a purpose-built FastAPI backend, which integrates with a real Databricks workspace through the official Databricks SDK — not a mocked or simulated data source.",
+          "Deployed as two separate Databricks Apps in the same workspace: a Next.js 16 / React 19 / TypeScript frontend, and a purpose-built FastAPI backend that talks to Databricks through the official SDK — a real workspace, not a mocked or simulated data source.",
+          "Since Databricks Apps reject anonymous cross-app requests, the frontend's own server runs a proxy route that exchanges a service-principal credential for a short-lived OAuth token and re-forwards each request to the backend with it attached — the browser itself never holds or sends any Databricks credential, only its own Databricks session cookie. The same code also runs fully locally (frontend and backend both on localhost, the backend authenticating with a personal access token) and can deploy identically to Vercel using the same proxy mechanism.",
         ],
       },
       {
         heading: "What's built and verified working",
         body: [
-          "Live pipeline monitoring pulls real job and run data from the Databricks Jobs API: job lists, run history, and KPIs (execution counts, success rate, durations) computed from actual runs, not sample data.",
-          "A working incident-management loop: failed job runs are detected and tracked in a Delta table the backend owns; a human can approve or reject an incident; approving triggers an actual Databricks job rerun via the Jobs API, and the system polls the real run and auto-resolves the incident once it completes. This full lifecycle — detect a real failure, approve it, watch Databricks execute the rerun, watch it auto-resolve — was run end-to-end against a live workspace.",
+          "Live pipeline monitoring pulls real job and run data from the Databricks Jobs API for 5 real jobs: job lists, run history, and KPIs (execution counts, success rate, durations) computed from actual runs, not sample data.",
+          "A working incident-management loop backed by a real Delta table the backend owns: on every read, recent job-run history is scanned and any newly failed run is inserted as an incident automatically; a human approves or rejects it; approving triggers an actual Databricks job rerun via the Jobs API; and the frontend polls the incident every 1.5 seconds while the backend checks that specific rerun's real status until it reaches success or failure, then updates the record accordingly. This full lifecycle — a real failure detected, approved, rerun by Databricks, and auto-resolved — was run end-to-end against a live workspace.",
+        ],
+      },
+      {
+        heading: "Access control",
+        body: [
+          "Databricks' own SSO gates the frontend app, granted to the workspace's users group; the backend is a separately-gated app the frontend itself authenticates to via the proxy's service-principal credential, rather than trusting the caller's browser session to carry authority it was never granted.",
         ],
       },
       {
         heading: "Scope, honestly stated",
         body: [
-          "This is governed, automated pipeline monitoring and remediation, not an AI-agent system: there's no LLM or agent performing investigation or diagnosis today, by deliberate choice, to keep the backend minimal and everything provably real rather than a fabricated AI narrative. A multi-agent/LLM investigation layer is designed and documented but not built.",
+          "This is governed, automated pipeline monitoring and remediation, not an AI-agent system: there's no LLM or agent performing investigation or diagnosis today, by deliberate choice, to keep the backend minimal and everything provably real rather than a fabricated AI narrative — the UI's investigation/data-quality/SLA/recommendation fields are always empty for live incidents and those stages are skipped rather than faked as complete. A multi-agent/LLM investigation layer is designed and documented but not built.",
         ],
       },
       {
         heading: "Status",
         body: [
-          "Not deployed publicly yet — the frontend runs locally via `npm run dev` and the backend locally via `uvicorn`; neither is deployed to Vercel or Databricks Apps.",
+          "Deployed and working end-to-end as two Databricks Apps in a personal Databricks workspace (also deployable to Vercel with the same proxy). The 37+ incident records visible in the system are genuine failed-run history from earlier testing, not incidents happening live right now, since the demo jobs' schedules are currently paused.",
         ],
       },
+    ],
+    metrics: [
+      { label: "Jobs monitored", value: "5 real Databricks jobs" },
+      { label: "Incident records", value: "37+ (real failed-run history)" },
     ],
   },
   {
