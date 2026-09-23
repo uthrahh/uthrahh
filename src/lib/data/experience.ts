@@ -161,9 +161,14 @@ export const experience: ExperienceItem[] = [
           "Designed the two-path retrieval architecture (Genie for structured SAP data, RAG for policy documents), built the six-document knowledge base, and authored a 32-question evaluation set balanced across routing patterns.",
       },
       {
-        title: "Natural-language data operations assistant",
-        oneLiner: "Streamlit prototype classifying requests into data-ops workflows.",
-        technologies: ["Python", "Streamlit", "LLM prompt engineering"],
+        title: "Sentinel: Databricks Pipeline Observability & Remediation Platform",
+        oneLiner: "Full-stack pipeline observability platform with a live, human-approved remediation loop.",
+        technologies: ["FastAPI", "Next.js 16", "Databricks SDK", "Databricks Jobs API", "Delta Lake"],
+        projectSlug: "data-pipeline-sentinel",
+        context:
+          "Started as a team proof-of-concept exploring what a pipeline-monitoring dashboard could look like, with no backend or live data behind it.",
+        contribution:
+          "Independently rebuilt it into a working system: a FastAPI backend integrating with a real Databricks workspace, live Jobs API monitoring, and a Delta-table-backed incident loop where an approved failure triggers a real job rerun that's polled to resolution.",
       },
     ],
     technologies: [

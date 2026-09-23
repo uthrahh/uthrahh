@@ -886,10 +886,6 @@ export const projects: Project[] = [
         ],
       },
     ],
-    metrics: [
-      { label: "Jobs monitored", value: "5 real Databricks jobs" },
-      { label: "Incident records", value: "37+ (real failed-run history)" },
-    ],
   },
   {
     slug: "task-goal-tracker",
