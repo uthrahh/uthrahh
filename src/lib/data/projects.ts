@@ -832,19 +832,18 @@ export const projects: Project[] = [
       "SQL Warehouse / Statement Execution API",
       "OAuth 2.0 (service-principal token exchange)",
     ],
-    role: "Full-stack engineer (solo)",
-    context: "Originated as a KaarTech internship proof of concept, independently rebuilt since",
+    role: "Data engineer",
+    context: "KaarTech internship proof of concept",
     featured: true,
     status: "Shipped internally",
     cover: {
       kind: "dashboard",
+      src: "/sentinel-dashboard.png",
       alt: "Sentinel pipeline observability dashboard showing live Databricks job monitoring and incident management",
       aspect: "16/9",
     },
     links: [
       { label: "Repository", href: "https://github.com/uthrahh/Data-Pipeline-Sentinel", kind: "repo" },
-      { label: "Frontend README", href: "https://github.com/uthrahh/Data-Pipeline-Sentinel/blob/main/Frontend/README.md", kind: "docs" },
-      { label: "Backend README", href: "https://github.com/uthrahh/Data-Pipeline-Sentinel/blob/main/Backend/README.md", kind: "docs" },
     ],
     sections: [
       {
