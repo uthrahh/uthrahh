@@ -164,11 +164,6 @@ export const experience: ExperienceItem[] = [
         title: "Natural-language data operations assistant",
         oneLiner: "Streamlit prototype classifying requests into data-ops workflows.",
         technologies: ["Python", "Streamlit", "LLM prompt engineering"],
-        projectSlug: "ai-data-engineering-assistant",
-        context:
-          "Triggering routine data-engineering operations required knowing which Databricks job to run and how to invoke it manually.",
-        contribution:
-          "Studied an existing internal AI data-operations assistant with the team, then rebuilt its intent-classification layer: a constrained LLM prompt mapping free text to one of three operations, with a regex fallback.",
       },
     ],
     technologies: [

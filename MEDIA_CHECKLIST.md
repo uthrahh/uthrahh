@@ -40,10 +40,10 @@ screenshots, 4:3 for everything else).
 | EV Fleet Lakehouse Platform | Cover | 16:9 | Bronze/Silver/Gold architecture diagram | `public/media/projects/ev-fleet-lakehouse-platform/cover.jpg` |
 | AI-Powered SAP ERP Assistant | Cover | 16:9 | Genie + RAG routing architecture diagram | `public/media/projects/ai-powered-sap-erp-intelligence-assistant/cover.jpg` |
 | AI-Powered SAP ERP Assistant | Gallery 1 | 4:3 | Business glossary document screenshot | `public/media/projects/ai-powered-sap-erp-intelligence-assistant/gallery-1.jpg` |
-| AI Data Operations Assistant | Cover | 4:3 | Streamlit chat interface screenshot | `public/media/projects/ai-data-engineering-assistant/cover.jpg` |
 | Capital Allocation & Risk Optimization | Cover | 16:9 | Optimizer output (code/terminal screenshot) | `public/media/projects/capital-allocation-risk-optimization/cover.jpg` |
 | Capital Allocation & Risk Optimization | Gallery 1 | 4:3 | Risk-adjusted return distribution chart | `public/media/projects/capital-allocation-risk-optimization/gallery-1.jpg` |
-| Data Pipeline Sentinel | Cover | 4:3 | UI concept: KPI cards and pipeline table | `public/media/projects/data-pipeline-sentinel/cover.jpg` |
+| Sentinel: Databricks Pipeline Observability & Remediation Platform | Cover | 16:9 | Live Databricks job monitoring / incident dashboard screenshot | `public/media/projects/data-pipeline-sentinel/cover.jpg` |
+| Task Management & Goal Tracking SaaS | Cover | 4:3 | App screenshot showing unified tasks, habits, and goals | `public/media/projects/task-goal-tracker/cover.jpg` |
 
 ## Experience workstreams
 

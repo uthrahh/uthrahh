@@ -749,47 +749,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "ai-data-engineering-assistant",
-    title: "AI Data Operations Assistant (Prototype)",
-    summary:
-      "A Streamlit chat prototype, built collaboratively, that classifies natural-language requests into data-engineering operations, replicating an existing internal assistant's intent layer.",
-    categories: ["AI & GenAI", "Data Engineering"],
-    technologies: ["Python", "Streamlit", "LLM prompt engineering"],
-    role: "Data/AI engineer, team project",
-    context: "Data Engineering Internship, KaarTech",
-    featured: false,
-    status: "Proof of concept",
-    cover: {
-      kind: "code",
-      alt: "Streamlit chat interface with the intent classification prompt",
-      aspect: "4/3",
-    },
-    links: [
-      { label: "Repository", href: "https://github.com/uthrahh/Databricks-AIPowered-DataEngg-Assistant", kind: "repo" },
-    ],
-    sections: [
-      {
-        heading: "Problem",
-        body: [
-          "Triggering routine data-engineering operations (updating a configuration value, refreshing a dataset, running a validation check) required knowing which Databricks job to run and how to invoke it. The goal was a natural-language front door to these operations.",
-        ],
-      },
-      {
-        heading: "What was built",
-        body: [
-          "A Streamlit chat interface backed by an LLM-based intent classifier that maps a free-text request into exactly one of three operations: UPDATE_CONFIG, DATA_REFRESH, or DATA_VALIDATION, using a tightly constrained prompt and a regex fallback to extract a valid category if the model adds surrounding text.",
-          "Built as a deliberate replication exercise with the team: first studied the architecture and workflow of an existing internal AI data-operations assistant, then rebuilt its intent-classification layer collaboratively to understand the design end to end.",
-        ],
-      },
-      {
-        heading: "Scope, honestly stated",
-        body: [
-          "This is the intent-classification layer only. The execution step for each operation (generating and running the approved SQL, triggering the actual Databricks refresh or validation job) is scaffolded as a documented next step in the code, not yet wired to real jobs.",
-        ],
-      },
-    ],
-  },
-  {
     slug: "capital-allocation-risk-optimization",
     title: "Capital Allocation & Risk Optimization Platform",
     summary:
@@ -938,12 +897,15 @@ export const projects: Project[] = [
     context: "Independent project, in development",
     featured: false,
     status: "Product in development",
+    websiteUrl: "https://wayfare101.vercel.app/",
     cover: {
       kind: "product",
       alt: "Task Management & Goal Tracking SaaS app showing unified tasks, habits, and goals",
       aspect: "4/3",
     },
-    links: [],
+    links: [
+      { label: "Repository", href: "https://github.com/uthrahh/Task-Management-and-Goal-Tracking-SaaS", kind: "repo" },
+    ],
     sections: [
       {
         heading: "Problem",
