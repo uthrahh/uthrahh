@@ -42,7 +42,7 @@ export function ResumeModal({ open, onClose }: { open: boolean; onClose: () => v
       }}
     >
       <div className="flex items-center justify-between border-b border-border px-5 py-4">
-        <p className="font-display text-lg text-ink">Download Resume</p>
+        <p className="font-display text-lg text-ink">View Resume</p>
         <button
           type="button"
           onClick={onClose}
@@ -62,7 +62,8 @@ export function ResumeModal({ open, onClose }: { open: boolean; onClose: () => v
             <a
               key={variant.short}
               href={variant.url}
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-3 rounded-xl border border-border bg-paper-raised px-4 py-3 text-sm transition-colors hover:border-accent hover:bg-paper-sunken"
             >
               <span className="font-mono text-xs font-semibold uppercase tracking-wide text-accent-strong">
