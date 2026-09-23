@@ -749,69 +749,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "capital-allocation-risk-optimization",
-    title: "Capital Allocation & Risk Optimization Platform",
-    summary:
-      "An XGBoost credit-risk model feeding an integer-programming portfolio optimizer that allocates capital across loans and properties under a budget constraint.",
-    categories: ["Data Analytics & ML"],
-    technologies: ["Python", "XGBoost", "Pyomo", "GLPK", "PostgreSQL", "pandas"],
-    role: "Data scientist (solo)",
-    context: "Independent project",
-    featured: true,
-    status: "Completed",
-    cover: {
-      kind: "code",
-      src: "/capital-allocation-risk-optimization-cover.svg",
-      alt: "Optimizer output: selected loans and properties under budget constraint",
-      aspect: "16/9",
-    },
-    gallery: [
-      {
-        kind: "dashboard",
-        alt: "Risk-adjusted return distribution across the loan portfolio",
-        aspect: "4/3",
-      },
-    ],
-    links: [
-      { label: "Repository", href: "https://github.com/uthrahh/Capital-Allocation---Risk-Optimization-Platform", kind: "repo" },
-    ],
-    sections: [
-      {
-        heading: "Problem",
-        body: [
-          "Given a fixed capital budget and two asset classes with different risk/return profiles, consumer loans and rental properties, how should capital be allocated to maximize expected return without exceeding budget, when each loan's real risk has to be estimated first?",
-        ],
-      },
-      {
-        heading: "Pipeline: risk model into optimizer",
-        body: [
-          "A credit-risk model (`credit_model.py`) pulls loan data from PostgreSQL, engineers features (loan amount, interest rate, annual income, debt-to-income ratio, installment, revolving balance and utilization), and trains an XGBoost classifier (`n_estimators=200`, `max_depth=4`, `learning_rate=0.05`) on a stratified 70/30 split to predict default probability.",
-          "Each loan's predicted default probability feeds a risk-adjusted return calculation (expected return minus expected loss), so the optimizer downstream is allocating against risk-adjusted returns, not face-value returns.",
-          "The optimizer (`optimizer.py`) treats loan and property selection as binary decisions and solves an integer linear program with Pyomo/GLPK to maximize total risk-adjusted return subject to a hard budget constraint.",
-        ],
-      },
-      {
-        heading: "Results",
-        body: [
-          "Credit model: 0.732 ROC-AUC on held-out test data.",
-          "Vacancy/property model: 0.688 concordance index.",
-          "Optimizer, given a $5,000,000 budget across 300 candidate loans and 100 candidate properties: selected 232 loans and 22 properties, deployed $4,999,940 of the $5,000,000 budget, for an optimized total return of $1,364,512, solved to a confirmed optimal solution.",
-        ],
-      },
-      {
-        heading: "Why this design",
-        body: [
-          "Separating the risk model from the optimizer keeps each piece independently testable and replaceable. The optimizer doesn't care whether risk-adjusted return came from XGBoost or a different model; it just needs a number per asset and a budget constraint.",
-        ],
-      },
-    ],
-    metrics: [
-      { label: "Credit model ROC-AUC", value: "0.732" },
-      { label: "Capital deployed", value: "$4,999,940 of $5,000,000" },
-      { label: "Assets selected", value: "232 loans + 22 properties" },
-    ],
-  },
-  {
     slug: "data-pipeline-sentinel",
     title: "Sentinel: Databricks Pipeline Observability & Remediation Platform",
     summary:

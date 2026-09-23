@@ -7,9 +7,22 @@ import { useProjectModal } from "@/components/ProjectModalProvider";
 import { projects } from "@/lib/data/projects";
 import type { Project } from "@/lib/types";
 
-// Required first row, in this exact order, regardless of featured/array
-// order: AutCore, Abov, Women360, FMCG Sales Analytics Pipeline.
-const PRIORITY_ORDER = ["autcore", "abov-hr", "women360", "reckitt-sales-analytics-pipeline"];
+// Required display order, regardless of featured/array order: AutCore,
+// Abov, Women360, Sentinel, Startup Incubation ERP, EV Fleet Lakehouse,
+// Task Management & Goal Tracking SaaS, WhatsApp Worklog Automation,
+// AI-Powered SAP ERP Intelligence Assistant, FMCG Sales Analytics Pipeline.
+const PRIORITY_ORDER = [
+  "autcore",
+  "abov-hr",
+  "women360",
+  "data-pipeline-sentinel",
+  "aic-erp",
+  "ev-fleet-lakehouse-platform",
+  "task-goal-tracker",
+  "aic-worklog-automation",
+  "ai-powered-sap-erp-intelligence-assistant",
+  "reckitt-sales-analytics-pipeline",
+];
 
 export function ProjectsSection() {
   const openProject = useProjectModal();
