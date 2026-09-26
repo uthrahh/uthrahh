@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=200&color=0:0f2027,50:203a43,100:2c5364&text=Pavithra%20Uthrah%20R%20K&fontColor=ffffff&fontSize=46&fontAlignY=38&desc=Data%20Engineering%20%E2%80%A2%20Backend%20Systems%20%E2%80%A2%20Applied%20ML&descAlignY=60&descSize=16&animation=fadeIn" width="100%" alt="Pavithra Uthrah R K" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=200&color=0:0f2027,50:2c5364,100:3a8fb7&text=Pavithra%20Uthrah%20R%20K&fontColor=ffffff&fontSize=46&fontAlignY=38&desc=Data%20Engineering%20%E2%80%A2%20Backend%20Systems%20%E2%80%A2%20Applied%20ML&descAlignY=60&descSize=16" width="100%" alt="Pavithra Uthrah R K" />
 </p>
 
 <p align="center">
@@ -112,5 +112,5 @@ I care about the *why* behind a system as much as the system itself: what a busi
 </p>
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=110&section=footer&color=0:0f2027,50:203a43,100:2c5364" width="100%" alt="" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=110&section=footer&color=0:3a8fb7,50:2c5364,100:0f2027" width="100%" alt="" />
 </p>
