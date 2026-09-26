@@ -21,7 +21,6 @@
 
 ```yaml
 name:      Pavithra Uthrah R K
-based_in:  Chennai, India
 studying:  B.Tech CSE @ Vellore Institute of Technology, Chennai (2027)
 focus:     Data engineering: pipelines, lakehouse architecture, BI
 also:      Backend systems (FastAPI, Django) and applied ML
@@ -33,7 +32,6 @@ experience:
 leading:   Chairperson, Open Source Programming Club, VIT Chennai  # Best Tech Club 2025-26, 250+ members
 won:       1st place @ HackHub'25 with AutCore, an AI-driven autism screening tool
 writing:   Notes on data, systems, and why companies make the calls they do (Substack)
-languages: [English, Tamil, Hindi (basic), German (basic)]
 ```
 
 I care about the *why* behind a system as much as the system itself: what a business needed to see clearly enough to make a decision, and what the data platform had to get right for that to happen.
