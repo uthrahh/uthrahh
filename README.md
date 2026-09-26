@@ -103,9 +103,9 @@ I care about the *why* behind a system as much as the system itself: what a busi
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/uthrahh/uthrahh/output/github-snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/uthrahh/uthrahh/output/github-snake.svg" />
-    <img src="https://raw.githubusercontent.com/uthrahh/uthrahh/output/github-snake.svg" alt="Snake eating my contribution graph" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/uthrahh/uthrahh/output/pacman-contribution-graph-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/uthrahh/uthrahh/output/pacman-contribution-graph.svg" />
+    <img src="https://raw.githubusercontent.com/uthrahh/uthrahh/output/pacman-contribution-graph.svg" alt="Pac-Man eating my contribution graph" />
   </picture>
 </p>
 
