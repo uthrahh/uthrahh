@@ -24,7 +24,8 @@ jobs:
       # The output branch only holds SVGs. Stop Vercel from trying to
       # build it as a preview deployment of the portfolio site.
       - name: Disable Vercel deployments for the output branch
-        run: echo '{"git":{"deploymentEnabled":false}}' > dist/vercel.json
+        # dist/ is created by the snk container as root, hence sudo.
+        run: echo '{"git":{"deploymentEnabled":false}}' | sudo tee dist/vercel.json
 
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v4
