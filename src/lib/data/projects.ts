@@ -635,7 +635,7 @@ export const projects: Project[] = [
     summary:
       "Requirements, data model, and Medallion architecture design for a Databricks Lakehouse consolidating a commercial EV fleet's telemetry, charging, and maintenance data.",
     categories: ["Data Engineering"],
-    technologies: ["Databricks", "PySpark", "Delta Lake", "Unity Catalog", "Apache Airflow", "dbt", "Power BI"],
+    technologies: ["Databricks", "PySpark", "Delta Lake", "Unity Catalog", "Auto Loader", "Power BI"],
     role: "Data engineer, requirements & architecture (solo)",
     context: "Data Engineering Internship, KaarTech",
     featured: true,
@@ -670,7 +670,7 @@ export const projects: Project[] = [
         body: [
           "Delta Lake is required to demonstrate ACID writes, `MERGE`-based upserts, schema enforcement and evolution, time travel, and `OPTIMIZE`/`VACUUM`, not just used as a storage format.",
           "Every pipeline run is required to produce an audit record (run_id, source/bronze/silver/gold record counts, inserted/updated/rejected counts, quality status) written to a dedicated Delta audit table, making every run independently reconstructable.",
-          "Orchestration is specified through Airflow with explicit stage dependencies (Ingestion, then Bronze, then Bronze validation, then Silver, then Silver validation, then Gold via dbt, then Gold validation), retries, and rerun capability, not a single monolithic job.",
+          "Orchestration is specified as explicit stage dependencies (ingestion, then Bronze, Bronze validation, Silver, Silver validation, Gold, Gold validation) with retries and rerun capability, not a single monolithic job. The orchestration tool itself is left to the build phase.",
         ],
       },
       {

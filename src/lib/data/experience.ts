@@ -97,7 +97,7 @@ export const experience: ExperienceItem[] = [
   {
     org: "KaarTech",
     orgUrl: "https://www.kaartech.com",
-    role: "Data Engineer",
+    role: "Data Engineer Intern",
     employmentType: "Internship",
     workMode: "On-site",
     city: "Chennai",
@@ -143,7 +143,7 @@ export const experience: ExperienceItem[] = [
       {
         title: "EV fleet Lakehouse architecture",
         oneLiner: "Medallion architecture design for a commercial EV fleet Lakehouse.",
-        technologies: ["Databricks", "PySpark", "Delta Lake", "Unity Catalog", "Airflow", "dbt"],
+        technologies: ["Databricks", "PySpark", "Delta Lake", "Unity Catalog", "Auto Loader"],
         projectSlug: "ev-fleet-lakehouse-platform",
         context:
           "A commercial EV fleet operator's telemetry, trip, charging, fault, and maintenance data lived in six disconnected source systems with no unified analytics platform.",
@@ -185,7 +185,7 @@ export const experience: ExperienceItem[] = [
   {
     org: "AIC - Crescent Innovation and Incubation Council",
     orgUrl: "https://aic-ciic.ventures",
-    role: "Software Development Engineer",
+    role: "Software Development Engineer Intern",
     employmentType: "Internship",
     workMode: "On-site",
     city: "Chennai",
