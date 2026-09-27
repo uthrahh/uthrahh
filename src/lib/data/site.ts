@@ -1,10 +1,9 @@
 export const site = {
   name: "Pavithra Uthrah R. K.",
-  title: "Software Engineering & Data",
-  tagline:
-    "Computer Science & Engineering candidate specializing in data engineering, with backend systems and applied machine learning as supporting range.",
+  title: "Data Engineer · Data Analyst · Software Development Engineer",
+  tagline: "I build data pipelines that are tested, observable, and trusted by the people who use them.",
   positioning:
-    "Computer Science & Engineering candidate at Vellore Institute of Technology, Chennai, specializing in data engineering — pipelines, lakehouse architecture, and BI — with backend systems and applied machine learning as supporting range.",
+    "Data Engineer, Data Analyst and Software Development Engineer (CSE, VIT Chennai, May 2027). I build data pipelines that are tested, observable, and trusted by the people who use them: PySpark, Databricks, Delta Lake, SQL, Power BI, FastAPI and Django.",
   email: "uthrahrk@gmail.com",
   location: "Chennai, India",
   github: "https://github.com/uthrahh",

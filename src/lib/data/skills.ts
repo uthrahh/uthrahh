@@ -45,8 +45,6 @@ export const skills: SkillGroup[] = [
       "Medallion architecture",
       "Star schema / dimensional modeling",
       "ETL & data validation",
-      "Apache Airflow",
-      "dbt",
     ],
   },
   {
