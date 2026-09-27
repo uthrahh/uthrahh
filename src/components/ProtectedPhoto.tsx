@@ -18,17 +18,20 @@ export function ProtectedPhoto({
   src,
   alt,
   className = "",
+  shapeClassName = "aspect-square rounded-full",
 }: {
   src: string;
   alt: string;
   className?: string;
+  /** Aspect + corner treatment; defaults to the original round avatar. */
+  shapeClassName?: string;
 }) {
   const [errored, setErrored] = useState(false);
   const showImage = !errored;
 
   return (
     <div
-      className={`relative aspect-square select-none overflow-hidden rounded-full border border-border bg-paper-sunken ${className}`}
+      className={`relative select-none overflow-hidden border border-border bg-paper-sunken ${shapeClassName} ${className}`}
     >
       {showImage ? (
         <div

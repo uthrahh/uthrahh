@@ -25,7 +25,7 @@ export function ScrollToTop() {
       type="button"
       onClick={goTop}
       aria-label="Back to top"
-      className="fixed bottom-20 right-4 z-40 flex h-11 w-11 items-center justify-center border border-border bg-paper/90 text-ink-muted backdrop-blur transition-colors hover:text-accent-strong lg:bottom-6 lg:right-6"
+      className="fixed bottom-5 right-5 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-border bg-paper/90 text-ink-muted backdrop-blur transition-colors hover:border-accent hover:text-accent-strong sm:bottom-6 sm:right-6"
     >
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
         <path
