@@ -27,7 +27,6 @@ export function ContactSection() {
 
           <div className="relative">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent-strong">06 · Contact</p>
-            <h2 className="mt-5 font-display text-4xl italic leading-tight text-ink sm:text-6xl">Let&apos;s talk data.</h2>
             <p className="mx-auto mt-5 max-w-lg text-[15px] leading-relaxed text-ink-muted">
               Looking for full-time Data Engineer, Data Analyst and Software Development Engineer roles
               starting 2027. A pipeline problem worth a second pair of eyes is welcome too.
