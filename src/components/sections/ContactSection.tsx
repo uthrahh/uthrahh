@@ -29,8 +29,8 @@ export function ContactSection() {
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent-strong">06 · Contact</p>
             <h2 className="mt-5 font-display text-4xl italic leading-tight text-ink sm:text-6xl">Let&apos;s talk data.</h2>
             <p className="mx-auto mt-5 max-w-lg text-[15px] leading-relaxed text-ink-muted">
-              A role, a collaboration, or a pipeline problem that could use a second pair of eyes: I&apos;d
-              like to hear about it.
+              Looking for full-time Data Engineer, Data Analyst and Software Development Engineer roles
+              starting 2027. A pipeline problem worth a second pair of eyes is welcome too.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">

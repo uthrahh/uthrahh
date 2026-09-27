@@ -7,8 +7,6 @@ import { HeroPipeline } from "@/components/HeroPipeline";
 import { useResumeModal } from "@/components/ResumeModalProvider";
 import { ArrowRight, Chevron, FileIcon, GitHubIcon, LinkedInIcon, SubstackIcon } from "@/components/icons";
 import { site } from "@/lib/data/site";
-import { projects } from "@/lib/data/projects";
-import { experience } from "@/lib/data/experience";
 
 const SIGNATURE_STACK = [
   "Python",
@@ -18,8 +16,6 @@ const SIGNATURE_STACK = [
   "Delta Lake",
   "Unity Catalog",
   "Power BI",
-  "Apache Airflow",
-  "dbt",
   "FastAPI",
   "Django",
   "PostgreSQL",
@@ -29,12 +25,13 @@ const SIGNATURE_STACK = [
   "RAG",
 ];
 
+// Every figure here is traceable to a case study or the data files.
 const FACTS = [
-  { value: String(projects.length), label: "case studies", sub: "data, backend & AI" },
-  { value: String(experience.length), label: "internships", sub: "data eng + SDE" },
-  { value: "39", label: "automated tests", sub: "in one PySpark pipeline" },
-  { value: "250+", label: "member club led", sub: "OSPC, VIT Chennai" },
-  { value: "1st", label: "place, HackHub'25", sub: "with AutCore" },
+  { value: "39", label: "automated tests", sub: "FMCG PySpark pipeline" },
+  { value: "140+", label: "startups served", sub: "facility booking backend" },
+  { value: "3", label: "backend systems", sub: "shipped in one month" },
+  { value: "1st", label: "of 500 teams", sub: "HackHub'25 · AutCore" },
+  { value: "#1", label: "of 110+ clubs", sub: "OSPC · 250+ members" },
 ];
 
 const ICON_LINK =
@@ -81,20 +78,20 @@ export function HomeSection() {
 
             <p className="mt-5 text-lg font-medium sm:text-xl">
               <span className="text-accent-strong">Data Engineer</span>
-              <span className="text-ink-muted"> · Backend Systems · Applied ML</span>
+              <span className="text-ink-muted"> · Data Analyst · Software Development Engineer</span>
             </p>
 
-            <p className="mt-3 font-display text-2xl italic leading-snug text-ink sm:text-[1.7rem]">
-              I build pipelines that business teams can trust.
+            <p className="mt-3 max-w-xl text-balance font-display text-2xl italic leading-snug text-ink sm:text-[1.7rem]">
+              {site.tagline}
             </p>
 
             <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-ink-muted">
-              I&apos;m a CSE candidate at{" "}
-              <span className="font-medium text-ink">Vellore Institute of Technology, Chennai</span>{" "}
-              focused on <span className="font-medium text-ink">data engineering</span>: the pipelines
-              and infrastructure that turn raw data into something a business can act on. My internships
-              and projects center on Databricks, extended by backend systems in Django and FastAPI and
-              applied machine learning, alongside two years leading a 250+ member technical community.
+              Final-year CSE at <span className="font-medium text-ink">VIT Chennai</span> (May 2027). As a{" "}
+              <span className="font-medium text-ink">Data Engineering intern at KaarTech</span> I built a tested
+              PySpark pipeline into a Power BI star schema and shipped{" "}
+              <span className="font-medium text-ink">Sentinel</span>, a pipeline observability app running on a
+              live Databricks workspace. At AIC-CIIC I built three backend systems in one month with Django,
+              FastAPI and PostgreSQL.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
