@@ -1,4 +1,4 @@
-name: Generate Pac-Man contribution graph
+name: Generate activity graphics
 
 on:
   schedule:
@@ -9,25 +9,37 @@ permissions:
   contents: write
 
 jobs:
-  pacman:
+  graphics:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - name: Check out the stats renderer
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: readme-assets
+
       - name: Generate Pac-Man SVGs
         uses: abozanona/pacman-contribution-graph@main
         with:
           github_user_name: ${{ github.repository_owner }}
 
+      - name: Build branded activity card
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          sudo mkdir -p dist && sudo chown -R "$USER" dist
+          python3 readme-assets/build_stats.py "${{ github.repository_owner }}" dist
+
       # The output branch only holds SVGs. Stop Vercel from trying to
       # build it as a preview deployment of the portfolio site.
       - name: Disable Vercel deployments for the output branch
-        run: echo '{"git":{"deploymentEnabled":false}}' | sudo tee dist/vercel.json
+        run: echo '{"git":{"deploymentEnabled":false}}' > dist/vercel.json
 
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
           build_dir: dist
-          commit_message: "chore: update Pac-Man contribution graph"
+          commit_message: "chore: update activity graphics"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
