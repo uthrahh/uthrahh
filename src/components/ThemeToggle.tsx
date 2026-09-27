@@ -10,13 +10,19 @@ export function ThemeToggle() {
   // render that's shared with the server, so it has to run in an effect.
   /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
-    const current = document.documentElement.getAttribute("data-theme");
-    if (current === "light" || current === "dark") {
-      setTheme(current);
-    } else {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setTheme(prefersDark ? "dark" : "light");
+    function sync() {
+      const current = document.documentElement.getAttribute("data-theme");
+      if (current === "light" || current === "dark") {
+        setTheme(current);
+      } else {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        setTheme(prefersDark ? "dark" : "light");
+      }
     }
+    sync();
+    // The command palette can also switch themes; stay in sync with it.
+    window.addEventListener("themechange", sync);
+    return () => window.removeEventListener("themechange", sync);
   }, []);
   /* eslint-enable react-hooks/set-state-in-effect */
 
@@ -34,7 +40,7 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
-      className="flex h-9 w-9 items-center justify-center rounded border border-border text-ink-muted transition-colors hover:border-border-strong hover:text-ink"
+      className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-ink-muted transition-colors hover:border-border-strong hover:text-ink"
     >
       {theme === "dark" ? (
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">

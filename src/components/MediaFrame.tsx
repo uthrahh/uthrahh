@@ -249,7 +249,7 @@ export function MediaFrame({
     <div
       className={
         fill
-          ? "absolute inset-0 overflow-hidden rounded-lg bg-paper-sunken"
+          ? "absolute inset-0 overflow-hidden bg-paper-sunken"
           : `relative overflow-hidden rounded-lg border border-border bg-paper-sunken ${aspectClass}`
       }
     >
