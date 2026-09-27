@@ -127,6 +127,16 @@ export const experience: ExperienceItem[] = [
     ],
     workstreams: [
       {
+        title: "Sentinel: Databricks Pipeline Observability & Remediation Platform",
+        oneLiner: "Full-stack pipeline observability platform with a live, human-approved remediation loop.",
+        technologies: ["FastAPI", "Next.js 16", "Databricks SDK", "Databricks Jobs API", "Delta Lake"],
+        projectSlug: "data-pipeline-sentinel",
+        context:
+          "Started as a team proof-of-concept exploring what a pipeline-monitoring dashboard could look like, with no backend or live data behind it.",
+        contribution:
+          "Independently rebuilt it into a working system: a FastAPI backend integrating with a real Databricks workspace, live Jobs API monitoring, and a Delta-table-backed incident loop where an approved failure triggers a real job rerun that's polled to resolution.",
+      },
+      {
         title: "FMCG sales analytics pipeline",
         oneLiner: "Tested PySpark ETL pipeline feeding a Power BI star schema.",
         technologies: ["PySpark", "Python", "YAML", "pytest", "Power BI"],
@@ -160,16 +170,6 @@ export const experience: ExperienceItem[] = [
         contribution:
           "Designed the two-path retrieval architecture (Genie for structured SAP data, RAG for policy documents), built the six-document knowledge base, and authored a 32-question evaluation set balanced across routing patterns.",
       },
-      {
-        title: "Sentinel: Databricks Pipeline Observability & Remediation Platform",
-        oneLiner: "Full-stack pipeline observability platform with a live, human-approved remediation loop.",
-        technologies: ["FastAPI", "Next.js 16", "Databricks SDK", "Databricks Jobs API", "Delta Lake"],
-        projectSlug: "data-pipeline-sentinel",
-        context:
-          "Started as a team proof-of-concept exploring what a pipeline-monitoring dashboard could look like, with no backend or live data behind it.",
-        contribution:
-          "Independently rebuilt it into a working system: a FastAPI backend integrating with a real Databricks workspace, live Jobs API monitoring, and a Delta-table-backed incident loop where an approved failure triggers a real job rerun that's polled to resolution.",
-      },
     ],
     technologies: [
       "Python",
@@ -199,7 +199,7 @@ export const experience: ExperienceItem[] = [
         label: "Delivered",
         items: [
           "**ERP Platform:** Designed and developed a centralized **Django-based ERP platform** for AIC-CIIC to digitize startup management, document workflows, services, lab operations, finance, and administrative processes previously handled through fragmented manual/WhatsApp-based workflows.",
-          "**WAP — Workflow Automation Platform:** Built a **Python/FastAPI-based workflow automation system** integrating PostgreSQL, Google Sheets, and WhatsApp Business APIs to streamline operational workflows, automate data movement, and reduce repetitive administrative work.",
+          "**WAP — WhatsApp Automation Agent:** Built an **AI-assisted WhatsApp automation agent** using Python/FastAPI that parses free-text daily work updates from a WhatsApp group into structured, trackable task data via LLM-based extraction (OpenAI/Gemini), replacing manual daily transcription into spreadsheets.",
           "**Facility Booking System:** Engineered a **Django + PostgreSQL facility management and booking platform** for managing labs, equipment, halls, startups, and booking history, with CSV-based master-data ingestion and **FullCalendar/Google Calendar integration** for real-time scheduling visibility.",
         ],
       },
@@ -224,15 +224,15 @@ export const experience: ExperienceItem[] = [
           "Designed and developed a centralized Django-based ERP to digitize all of it into one role-based platform.",
       },
       {
-        title: "WAP — Workflow Automation Platform",
+        title: "WAP — WhatsApp Automation Agent",
         oneLiner:
-          "FastAPI automation system integrating PostgreSQL, Google Sheets, and WhatsApp Business APIs.",
-        technologies: ["Python", "FastAPI", "PostgreSQL", "Google Sheets API", "WhatsApp Business API"],
+          "AI-assisted WhatsApp agent that turns free-text worklog messages into structured, trackable task data.",
+        technologies: ["Python", "FastAPI", "PostgreSQL", "whatsapp-web.js", "OpenAI API", "Gemini API"],
         projectSlug: "aic-worklog-automation",
         context:
-          "Operational workflows and data movement between systems required repetitive manual administrative work.",
+          "Employees reported daily work updates in a WhatsApp group as free text, requiring someone to manually read and re-type every message into a spreadsheet each day.",
         contribution:
-          "Built a workflow automation system streamlining operational workflows and automating data movement to cut repetitive admin work.",
+          "Built an AI-assisted WhatsApp automation agent: a FastAPI backend that syncs messages via a WhatsApp listener, extracts completed/pending tasks with an LLM (rule-based fallback), and carries pending tasks forward into a running per-employee backlog, replacing manual transcription.",
       },
       {
         title: "Facility Booking System",
@@ -253,8 +253,8 @@ export const experience: ExperienceItem[] = [
       "PostgreSQL",
       "REST APIs",
       "RBAC",
-      "Google Sheets API",
-      "WhatsApp Business API",
+      "whatsapp-web.js",
+      "OpenAI API",
       "Bootstrap 5",
     ],
   },
