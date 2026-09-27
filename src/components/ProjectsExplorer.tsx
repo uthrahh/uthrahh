@@ -13,7 +13,7 @@ const CATEGORIES: ProjectCategory[] = [
   "Data Analytics & ML",
 ];
 
-const INITIAL_VISIBLE_COUNT = 7; // 1 featured (2 columns) + 6 regular = 3 full rows
+const INITIAL_VISIBLE_COUNT = 4; // show 4 projects initially, then "View more"
 
 export function ProjectsExplorer({
   projects,
@@ -128,7 +128,7 @@ export function ProjectsExplorer({
                 onClick={() => setExpanded((e) => !e)}
                 className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border-strong px-6 text-sm font-semibold text-ink transition-colors hover:border-accent hover:text-accent-strong"
               >
-                {expanded ? "Show fewer" : `Show all ${filtered.length} projects`}
+                                                {expanded ? "Show fewer" : "View more"}
                 <svg
                   width="10"
                   height="10"
