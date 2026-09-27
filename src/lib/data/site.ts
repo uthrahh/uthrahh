@@ -1,9 +1,9 @@
 export const site = {
   name: "Pavithra Uthrah R. K.",
   title: "Data Engineer · Data Analyst · Software Development Engineer",
-  tagline: "I build data pipelines that are tested, observable, and trusted by the people who use them.",
+  tagline: "I engineer data pipelines built for reliability — rigorously tested, fully observable, and trusted in production.",
   positioning:
-    "Data Engineer, Data Analyst and Software Development Engineer (CSE, VIT Chennai, May 2027). I build data pipelines that are tested, observable, and trusted by the people who use them: PySpark, Databricks, Delta Lake, SQL, Power BI, FastAPI and Django.",
+    "Data Engineer, Data Analyst and Software Development Engineer (CSE, VIT Chennai, May 2027). I engineer data pipelines built for reliability — rigorously tested, fully observable, and trusted in production: PySpark, Databricks, Delta Lake, SQL, Power BI, FastAPI and Django.",
   email: "uthrahrk@gmail.com",
   location: "Chennai, India",
   github: "https://github.com/uthrahh",
