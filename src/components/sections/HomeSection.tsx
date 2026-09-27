@@ -72,7 +72,7 @@ export function HomeSection() {
               </p>
             </div>
 
-            <h1 className="mt-7 text-balance text-[2.7rem] font-bold leading-[0.98] tracking-[-0.03em] text-ink sm:text-6xl lg:text-[4.4rem]">
+            <h1 className="mt-7 text-balance text-[2.2rem] font-bold leading-[0.98] tracking-[-0.03em] text-ink sm:text-5xl lg:text-[3.4rem]">
               {site.name}
             </h1>
 
