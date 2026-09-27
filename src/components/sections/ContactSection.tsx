@@ -16,7 +16,7 @@ export function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="relative py-16 sm:py-24">
+    <section id="contact" className="relative pb-16 pt-4 sm:pb-24 sm:pt-6">
       <Container>
         <div
           data-reveal=""

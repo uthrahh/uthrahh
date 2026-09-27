@@ -17,14 +17,27 @@ const TONE: Record<string, string> = {
   "Cloud & Tools": "var(--silver)",
 };
 
-// The primary discipline gets the wide card.
-const WIDE = new Set(["Data Engineering"]);
+// Wide cards (2 of 3 columns on desktop), ordered so every row fills:
+// [DE ▭▭ | Languages] [Backend ▭▭ | Databases] [AI ▭▭ | ML] [BI | Frontend | Cloud]
+const WIDE = new Set(["Data Engineering", "Backend & APIs", "AI & GenAI"]);
+const ORDER = [
+  "Data Engineering",
+  "Languages",
+  "Backend & APIs",
+  "Databases",
+  "AI & GenAI",
+  "Machine Learning",
+  "Data & BI",
+  "Frontend",
+  "Cloud & Tools",
+];
 
 export function SkillsSection() {
-  const ordered = [
-    ...skills.filter((g) => WIDE.has(g.category)),
-    ...skills.filter((g) => !WIDE.has(g.category)),
-  ];
+  const rank = (c: string) => {
+    const i = ORDER.indexOf(c);
+    return i === -1 ? ORDER.length : i;
+  };
+  const ordered = [...skills].sort((a, b) => rank(a.category) - rank(b.category));
 
   return (
     <Section id="skills">
@@ -45,7 +58,7 @@ export function SkillsSection() {
                 key={group.category}
                 data-reveal=""
                 className={`relative rounded-2xl border bg-paper-raised p-5 sm:p-6 ${
-                  wide ? "border-accent/40 sm:col-span-2" : "border-border"
+                  wide ? "lg:col-span-2" : ""} ${group.category === "Data Engineering" ? "border-accent/40" : "border-border"
                 }`}
               >
                 <span aria-hidden="true" className="absolute left-6 top-0 h-[3px] w-12 rounded-b-full" style={{ background: tone }} />
