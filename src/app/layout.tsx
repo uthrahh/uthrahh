@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Serif, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import { FloatingNav } from "@/components/FloatingNav";
+import { SiteNav } from "@/components/SiteNav";
+import { CommandPaletteProvider } from "@/components/CommandPalette";
+import { RevealObserver } from "@/components/Reveal";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { Footer } from "@/components/Footer";
 import { ThemeScript } from "@/components/ThemeScript";
@@ -12,7 +14,7 @@ import { site } from "@/lib/data/site";
 const plexSans = IBM_Plex_Sans({
   variable: "--font-plex-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -20,6 +22,7 @@ const plexSerif = IBM_Plex_Serif({
   variable: "--font-plex-serif",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -82,12 +85,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col antialiased">
         <ResumeModalProvider>
           <ProjectModalProvider>
-            <FloatingNav />
-            <ScrollToTop />
-            <main className="flex-1">{children}</main>
+            <CommandPaletteProvider>
+              <SiteNav />
+              <ScrollToTop />
+              <RevealObserver />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </CommandPaletteProvider>
           </ProjectModalProvider>
         </ResumeModalProvider>
-        <Footer />
       </body>
     </html>
   );

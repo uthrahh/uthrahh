@@ -3,7 +3,7 @@ import { ButtonLink } from "@/components/ui";
 
 export default function NotFound() {
   return (
-    <Container className="flex min-h-[60vh] flex-col items-start justify-center py-20">
+    <Container className="flex min-h-[70vh] flex-col items-start justify-center pb-20 pt-32">
       <p className="font-mono text-xs uppercase tracking-widest text-accent">
         404
       </p>
