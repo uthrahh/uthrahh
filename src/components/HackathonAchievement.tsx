@@ -16,7 +16,7 @@ export function HackathonAchievement({ hackathon }: { hackathon: HackathonEntry 
 
   return (
     <li className="border-l-2 border-l-accent px-4 py-3">
-      <p className="font-display text-[14px] text-ink">{hackathon.result}</p>
+      <p className="text-[14px] font-semibold text-ink">{hackathon.result}</p>
       <p className="mt-0.5 text-sm text-ink-muted">{hackathon.name}</p>
       <p className="mt-1.5 font-mono text-[11px] text-ink-faint">{hackathon.organizer}</p>
       {project ? (

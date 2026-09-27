@@ -67,13 +67,13 @@ export function ProjectDetailModal({
   return (
     <dialog
       ref={dialogRef}
-      className="m-0 h-full max-h-full w-full max-w-full border-0 bg-transparent p-0 backdrop:bg-black/15 backdrop:backdrop-blur-sm open:animate-none"
+      className="m-0 h-full max-h-full w-full max-w-full border-0 bg-transparent p-0 backdrop:bg-black/55 backdrop:backdrop-blur-md open:animate-none"
       onClick={(e) => {
         if (e.target === dialogRef.current) onClose();
       }}
     >
       {project ? (
-        <div className="glass-modal mx-auto flex h-full max-h-full w-full max-w-3xl flex-col overflow-hidden rounded-none border border-border bg-black/40 backdrop-blur-xl shadow-2xl lg:my-6 lg:h-[calc(100%-3rem)] lg:rounded-2xl">
+        <div className="glass-modal mx-auto flex h-full max-h-full w-full max-w-3xl flex-col overflow-hidden rounded-none border border-border bg-[#141411]/95 backdrop-blur-xl shadow-2xl lg:my-6 lg:h-[calc(100%-3rem)] lg:rounded-2xl">
           <div className="flex items-center justify-between border-b border-border px-5 py-4 sm:px-8">
             <p className="font-mono text-xs uppercase tracking-widest text-ink-faint">
               Case study
@@ -82,7 +82,7 @@ export function ProjectDetailModal({
               type="button"
               onClick={onClose}
               aria-label="Close"
-              className="flex h-9 w-9 items-center justify-center rounded-sm text-ink-muted transition-colors hover:text-accent-strong"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-ink-muted transition-colors hover:border-accent hover:text-accent-strong"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M3 3l10 10M13 3 3 13" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
@@ -100,7 +100,7 @@ export function ProjectDetailModal({
               </span>
             </div>
 
-            <h1 className="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl">
+            <h1 className="mt-4 text-3xl font-bold leading-tight tracking-tight text-ink sm:text-[2.4rem]">
               {project.title}
             </h1>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-ink-muted">
@@ -114,14 +114,14 @@ export function ProjectDetailModal({
             ) : null}
 
             {project.metrics ? (
-              <div className="mt-6 rounded-lg border border-border bg-paper-raised p-5">
+              <div className="mt-6 rounded-xl border border-border bg-paper-raised p-5">
                 <p className="mb-3 font-mono text-xs uppercase tracking-widest text-ink-faint">
                   Impact
                 </p>
                 <div className="grid grid-cols-2 gap-5 sm:grid-cols-3">
                   {project.metrics.map((m) => (
                     <div key={m.label}>
-                      <dd className="font-display text-lg text-ink">{m.value}</dd>
+                      <dd className="text-lg font-bold text-ink">{m.value}</dd>
                       <dt className="text-sm text-ink-muted">{m.label}</dt>
                     </div>
                   ))}
@@ -195,7 +195,7 @@ export function ProjectDetailModal({
             <div className="mt-10 max-w-2xl space-y-8">
               {project.sections.map((section) => (
                 <section key={section.heading}>
-                  <h2 className="font-display text-xl text-ink">{section.heading}</h2>
+                  <h2 className="text-xl font-bold tracking-tight text-ink">{section.heading}</h2>
                   <div className="mt-3">
                     <SectionBody body={section.body} />
                   </div>
