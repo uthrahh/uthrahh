@@ -76,13 +76,9 @@ export function HomeSection() {
               {site.name}
             </h1>
 
-            <p className="mt-5 text-lg font-medium sm:text-xl">
+            <p className="mt-5 text-sm font-medium sm:text-base">
               <span className="text-accent-strong">Data Engineer</span>
               <span className="text-ink-muted"> · Data Analyst · Software Development Engineer</span>
-            </p>
-
-            <p className="mt-3 max-w-xl text-balance font-display text-2xl italic leading-snug text-ink sm:text-[1.7rem]">
-              {site.tagline}
             </p>
 
             <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-ink-muted">
