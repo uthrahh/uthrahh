@@ -1,7 +1,7 @@
 "use client";
 
 import { Container } from "@/components/Container";
-import { SectionHeading } from "@/components/ui";
+import { Section, SectionHeading } from "@/components/ui";
 import { ProjectsExplorer } from "@/components/ProjectsExplorer";
 import { useProjectModal } from "@/components/ProjectModalProvider";
 import { projects } from "@/lib/data/projects";
@@ -38,14 +38,19 @@ export function ProjectsSection() {
   const sorted = [...priority, ...rest];
 
   return (
-    <section id="projects" className="scroll-mt-6 border-b border-border">
-      <Container className="py-5 sm:py-6">
-        <SectionHeading eyebrow="Projects" />
+    <Section id="projects" className="border-y border-border bg-paper-sunken/40">
+      <Container>
+        <SectionHeading
+          index="02"
+          title="Selected work"
+          caption="case studies, click any card"
+          description="Data platforms, backend systems and applied AI, each with the problem, the architecture and what actually shipped."
+        />
 
-        <div className="mt-3">
+        <div className="mt-10">
           <ProjectsExplorer projects={sorted} onOpenProject={openProject} />
         </div>
       </Container>
-    </section>
+    </Section>
   );
 }

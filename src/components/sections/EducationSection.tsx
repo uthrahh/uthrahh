@@ -1,12 +1,12 @@
 import { Container } from "@/components/Container";
-import { SectionHeading } from "@/components/ui";
+import { Section, SectionHeading } from "@/components/ui";
 import { MediaFrame } from "@/components/MediaFrame";
 import { HackathonAchievement } from "@/components/HackathonAchievement";
 import { education, certifications } from "@/lib/data/education";
 import { hackathons } from "@/lib/data/leadership";
 import type { ActivityItem } from "@/lib/types";
 
-const LABEL_CLASS = "mb-4 font-mono text-xs uppercase tracking-widest text-accent";
+const LABEL_CLASS = "mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-accent-strong";
 
 function ActivityListItem({ item }: { item: ActivityItem }) {
   if (!item.history?.length) {
@@ -66,14 +66,14 @@ function EducationBoxHeader({
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-display text-xl text-accent-strong hover:text-accent sm:text-2xl"
+          className="text-xl font-bold tracking-tight text-ink underline-offset-4 hover:text-accent-strong hover:underline sm:text-2xl"
         >
           {name}
         </a>
       ) : (
-        <p className="font-display text-xl text-ink sm:text-2xl">{name}</p>
+        <p className="text-xl font-bold tracking-tight text-ink sm:text-2xl">{name}</p>
       )}
-      <span className="font-mono text-xs text-ink-faint">{meta}</span>
+      <span className="rounded-full border border-border bg-paper-sunken px-3 py-1 font-mono text-xs text-ink-muted">{meta}</span>
     </div>
   );
 }
@@ -83,14 +83,14 @@ export function EducationSection() {
   const school = education[1];
 
   return (
-    <section id="education" className="scroll-mt-6 border-b border-border">
-      <Container className="py-5 sm:py-6">
-        <SectionHeading eyebrow="Education" title="" />
+    <Section id="education" className="border-y border-border bg-paper-sunken/40">
+      <Container>
+        <SectionHeading index="04" title="Education" caption="VIT Chennai, class of 2027" />
 
-        <div className="mt-4 space-y-4">
+        <div className="mt-10 space-y-5">
           {/* University */}
           {university ? (
-            <div className="border border-border p-6 sm:p-7">
+            <div data-reveal="" className="rounded-2xl border border-border bg-paper-raised p-6 sm:p-8">
               <EducationBoxHeader
                 name={university.institution}
                 url={university.institutionUrl}
@@ -115,7 +115,7 @@ export function EducationSection() {
 
                 <div>
                   <p className={LABEL_CLASS}>Achievements</p>
-                  <ul className="divide-y divide-border border border-border">
+                  <ul className="divide-y divide-border overflow-hidden rounded-xl border border-border">
                     {hackathons.map((h) => (
                       <HackathonAchievement key={h.name} hackathon={h} />
                     ))}
@@ -153,7 +153,7 @@ export function EducationSection() {
 
           {/* School */}
           {school ? (
-            <div className="border border-border p-6 sm:p-7">
+            <div data-reveal="" className="rounded-2xl border border-border bg-paper-raised p-6 sm:p-8">
               <EducationBoxHeader
                 name={school.institution}
                 url={school.institutionUrl}
@@ -193,8 +193,8 @@ export function EducationSection() {
           ) : null}
 
           {/* Certifications */}
-          <div className="border border-border p-6 sm:p-7">
-            <p className="font-display text-xl text-ink sm:text-2xl">Certifications</p>
+          <div data-reveal="" className="rounded-2xl border border-border bg-paper-raised p-6 sm:p-8">
+            <p className="text-xl font-bold tracking-tight text-ink sm:text-2xl">Certifications</p>
             <div className="mt-3 space-y-3">
               {certifications.map((c) => (
                 <p key={c.name} className="text-[14px] leading-relaxed text-ink-muted">
@@ -218,6 +218,6 @@ export function EducationSection() {
           </div>
         </div>
       </Container>
-    </section>
+    </Section>
   );
 }
