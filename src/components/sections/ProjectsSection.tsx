@@ -11,17 +11,15 @@ import type { Project } from "@/lib/types";
 // then analytics, the hackathon win, and backend/product work.
 const PRIORITY_ORDER = [
   "autcore",
-  "data-pipeline-sentinel",
-  "reckitt-sales-analytics-pipeline",
-  "ev-fleet-lakehouse-platform",
-  "ai-powered-sap-erp-intelligence-assistant",
-  "aic-facility-booking",
-  "aic-erp",
-  "aic-worklog-automation",
-  "abov-hr",
-  "last-mile-delivery-tracker",
-  "women360",
-  "task-goal-tracker",
+"abov-hr",
+"women360",
+"data-pipeline-sentinel",
+"reckitt-sales-analytics-pipeline",
+"aic-erp",
+"ev-fleet-lakehouse-platform",
+"aic-worklog-automation",
+"aic-facility-booking",
+"last-mile-delivery-tracker",
 ];
 
 export function ProjectsSection() {
