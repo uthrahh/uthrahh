@@ -95,6 +95,7 @@
 html {
   color-scheme: light;
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem; /* clears the sticky top nav on anchor jumps */
 }
 
 :root[data-theme="dark"] {
@@ -123,13 +124,8 @@ body {
    body-text marker, so justifying it here covers all of them without
    editing each one individually. Single-line content (short bullets,
    labels) is unaffected — justify only stretches non-final wrapped lines. */
-@layer base {
-  .leading-relaxed {
-    text-align: justify;
-    text-justify: inter-word;
-    hyphens: auto;
-  }
-}
+/* Body copy is left-aligned (ragged right): justified text with hyphenation
+   creates uneven word gaps that hurt scanning speed on narrow columns. */
 
 :focus-visible {
   outline: 2px solid var(--focus-ring);
@@ -359,5 +355,187 @@ body {
   }
   .project-barrel-static {
     display: block;
+  }
+}
+
+
+/* ==========================================================================
+   Redesign layer: pipeline motif, textures, reveal-on-scroll, spotlight.
+   Shares its visual language with the GitHub profile README
+   (github.com/uthrahh) so the two read as one brand.
+   ========================================================================== */
+
+:root {
+  --bronze: #9a5a2a;
+  --silver: #66707a;
+  --gold: #9c6f07;
+  --ok: #3f7d3a;
+  --cool: #2b6cb0;
+  --dot: rgba(22, 24, 26, 0.12);
+  --glow: rgba(204, 85, 0, 0.14);
+}
+
+:root[data-theme="dark"] {
+  --bronze: #c07a45;
+  --silver: #b9c0c6;
+  --gold: #e0b54a;
+  --ok: #7fb069;
+  --cool: #6ca9e0;
+  --dot: rgba(255, 255, 255, 0.09);
+  --glow: rgba(204, 85, 0, 0.24);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bronze: #c07a45;
+    --silver: #b9c0c6;
+    --gold: #e0b54a;
+    --ok: #7fb069;
+    --cool: #6ca9e0;
+    --dot: rgba(255, 255, 255, 0.09);
+    --glow: rgba(204, 85, 0, 0.24);
+  }
+}
+
+@theme inline {
+  --color-bronze: var(--bronze);
+  --color-silver: var(--silver);
+  --color-gold: var(--gold);
+  --color-ok: var(--ok);
+  --color-cool: var(--cool);
+}
+
+/* Dot-grid texture, faded with a mask so it never competes with content. */
+.dot-grid {
+  background-image: radial-gradient(var(--dot) 1.1px, transparent 1.1px);
+  background-size: 22px 22px;
+}
+
+.fade-left {
+  mask-image: linear-gradient(to right, transparent 10%, black 70%);
+  -webkit-mask-image: linear-gradient(to right, transparent 10%, black 70%);
+}
+
+.fade-radial {
+  mask-image: radial-gradient(ellipse 70% 60% at 70% 30%, black 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 70% 30%, black 20%, transparent 75%);
+}
+
+.accent-glow {
+  background: radial-gradient(closest-side, var(--glow), transparent);
+}
+
+/* Hero entrance (pure CSS so it never waits on hydration). */
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Terminal cursor */
+@keyframes caret-blink {
+  50% { opacity: 0; }
+}
+.caret {
+  animation: caret-blink 1.1s steps(1) infinite;
+}
+
+/* Particle travelling down the hero pipeline spine. Colour steps through
+   the medallion layers as it passes each node. */
+@keyframes spine-flow {
+  0% { transform: translateY(0); opacity: 0; background: var(--ink-faint); }
+  6% { opacity: 1; }
+  20% { background: var(--bronze); }
+  45% { background: var(--silver); }
+  70% { background: var(--gold); }
+  90% { background: var(--accent-strong); opacity: 1; }
+  100% { transform: translateY(var(--spine-length, 280px)); opacity: 0; background: var(--accent-strong); }
+}
+.spine-particle {
+  animation: spine-flow 4.2s linear infinite;
+}
+
+@keyframes soft-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1); }
+}
+.soft-pulse {
+  animation: soft-pulse 2.4s ease-in-out infinite;
+}
+
+/* Section header rule with a dot that travels along it. */
+@keyframes rule-travel {
+  from { left: 0%; }
+  to { left: 100%; }
+}
+.rule-dot {
+  animation: rule-travel 3.6s cubic-bezier(0.6, 0, 0.4, 1) infinite alternate;
+}
+
+/* Reveal-on-scroll: elements start slightly lowered and transparent and
+   settle in once visible. Without JS (or with reduced motion) content is
+   simply shown — the hidden state only applies once JS marks the page. */
+.js-reveal [data-reveal] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.js-reveal [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Cursor spotlight on cards: --mx / --my are set on pointer move. */
+.spotlight {
+  position: relative;
+  isolation: isolate;
+}
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, -20%),
+    var(--glow),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.spotlight:hover::before,
+.spotlight:focus-within::before {
+  opacity: 1;
+}
+
+/* Horizontal marquee (stack ticker). Duplicated content + translate -50%. */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+.marquee {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+  .spine-particle,
+  .rule-dot,
+  .marquee-track,
+  .caret,
+  .soft-pulse {
+    animation: none !important;
   }
 }

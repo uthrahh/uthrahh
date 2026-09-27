@@ -4,9 +4,11 @@ import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { EducationSection } from "@/components/sections/EducationSection";
 import { InterestsSection } from "@/components/sections/InterestsSection";
+import { ContactSection } from "@/components/sections/ContactSection";
 // import { ArticlesSection } from "@/components/sections/ArticlesSection";
-import { LanguagesSection } from "@/components/sections/LanguagesSection";
 
+// Languages now render inside the "Beyond the pipeline" section
+// (InterestsSection) under the #languages anchor.
 export default function Home() {
   return (
     <>
@@ -17,7 +19,7 @@ export default function Home() {
       <EducationSection />
       <InterestsSection />
       {/* <ArticlesSection /> */}
-      <LanguagesSection />
+      <ContactSection />
     </>
   );
 }
