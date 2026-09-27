@@ -41,7 +41,7 @@ screenshots, 4:3 for everything else).
 | AI-Powered SAP ERP Assistant | Cover | 16:9 | Genie + RAG routing architecture diagram | `public/media/projects/ai-powered-sap-erp-intelligence-assistant/cover.jpg` |
 | AI-Powered SAP ERP Assistant | Gallery 1 | 4:3 | Business glossary document screenshot | `public/media/projects/ai-powered-sap-erp-intelligence-assistant/gallery-1.jpg` |
 | Sentinel: Databricks Pipeline Observability & Remediation Platform | Cover | 16:9 | Live Databricks job monitoring / incident dashboard screenshot | `public/media/projects/data-pipeline-sentinel/cover.jpg` |
-| Task Management & Goal Tracking SaaS | Cover | 4:3 | App screenshot showing unified tasks, habits, and goals | `public/media/projects/task-goal-tracker/cover.jpg` |
+| Luma: Task Management & Goal Tracking SaaS | Cover | 4:3 | App screenshot showing unified tasks, habits, and goals | `public/media/projects/task-goal-tracker/cover.jpg` |
 
 ## Experience workstreams
 

@@ -199,7 +199,7 @@ export const experience: ExperienceItem[] = [
         label: "Delivered",
         items: [
           "**ERP Platform:** Designed and developed a centralized **Django-based ERP platform** for AIC-CIIC to digitize startup management, document workflows, services, lab operations, finance, and administrative processes previously handled through fragmented manual/WhatsApp-based workflows.",
-          "**WAP — WhatsApp Automation Agent:** Built an **AI-assisted WhatsApp automation agent** using Python/FastAPI that parses free-text daily work updates from a WhatsApp group into structured, trackable task data via LLM-based extraction (OpenAI/Gemini), replacing manual daily transcription into spreadsheets.",
+          "**WhatsApp Automation Agent:** Built an **AI-assisted WhatsApp automation agent** using Python/FastAPI that parses free-text daily work updates from a WhatsApp group into structured, trackable task data via LLM-based extraction (OpenAI/Gemini), replacing manual daily transcription into spreadsheets.",
           "**Facility Booking System:** Engineered a **Django + PostgreSQL facility management and booking platform** for managing labs, equipment, halls, startups, and booking history, with CSV-based master-data ingestion and **FullCalendar/Google Calendar integration** for real-time scheduling visibility.",
         ],
       },
@@ -224,7 +224,7 @@ export const experience: ExperienceItem[] = [
           "Designed and developed a centralized Django-based ERP to digitize all of it into one role-based platform.",
       },
       {
-        title: "WAP — WhatsApp Automation Agent",
+        title: "WhatsApp Automation Agent",
         oneLiner:
           "AI-assisted WhatsApp agent that turns free-text worklog messages into structured, trackable task data.",
         technologies: ["Python", "FastAPI", "PostgreSQL", "whatsapp-web.js", "OpenAI API", "Gemini API"],
