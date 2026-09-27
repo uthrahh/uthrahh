@@ -825,7 +825,7 @@ export const projects: Project[] = [
   },
   {
     slug: "task-goal-tracker",
-    title: "Task Management & Goal Tracking SaaS",
+    title: "Luma: Task Management & Goal Tracking SaaS",
     summary:
       "A cross-platform SaaS unifying tasks, habits, goals, milestones, notes, calendar, notifications, and focus sessions in one place.",
     categories: ["Full-Stack", "Software Engineering"],
@@ -849,7 +849,7 @@ export const projects: Project[] = [
     websiteUrl: "https://wayfare101.vercel.app/",
     cover: {
       kind: "product",
-      alt: "Task Management & Goal Tracking SaaS app showing unified tasks, habits, and goals",
+      alt: "Luma app showing unified tasks, habits, and goals",
       aspect: "4/3",
     },
     links: [
