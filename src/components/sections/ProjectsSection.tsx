@@ -10,9 +10,9 @@ import type { Project } from "@/lib/types";
 // Display order: data engineering proof first (Sentinel is the lead asset),
 // then analytics, the hackathon win, and backend/product work.
 const PRIORITY_ORDER = [
+  "autcore",
   "data-pipeline-sentinel",
   "reckitt-sales-analytics-pipeline",
-  "autcore",
   "ev-fleet-lakehouse-platform",
   "ai-powered-sap-erp-intelligence-assistant",
   "aic-facility-booking",
