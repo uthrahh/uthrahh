@@ -14,8 +14,8 @@ export const site = {
   // Two real, role-targeted resumes — clicking "Resume" opens a popup to
   // pick one, which opens that resume's Google Drive link in a new tab.
   resumeVariants: [
-    { short: "SDE", role: "Software Development", url: "https://drive.google.com/file/d/1t48uTXXfR6JQ4jQea0M2yHCMdsihWV0C/view?usp=sharing" },
-    { short: "D&AI", role: "Data & AI", url: "https://drive.google.com/file/d/1eF4Liz_UipC0x3UvZQwFHRAZDLlX_5Xj/view?usp=sharing" },
+    { short: "SDE", role: "Software Development", url: "https://drive.google.com/file/d/1uSFBpAgnwHUE2JBowCa3B7mJhys4PDEm/view?usp=sharing" },
+    { short: "D&AI", role: "Data & AI", url: "https://drive.google.com/file/d/1I3RM25JKywH-zJ2GIZ3JE5N9tMkDji0K/view?usp=sharing" },
   ],
   domain: "", // set once a custom domain exists; falls back to the deploy URL
   siteUrlFallback: "https://my-portfolio.vercel.app",
