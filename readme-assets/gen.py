@@ -75,7 +75,7 @@ class Doc:
     def save(self, name, theme):
         os.makedirs(OUT, exist_ok=True)
         path = os.path.join(OUT, f"{name}-{theme}.svg")
-        with open(path, "w") as f:
+        with open(path, "w", encoding="utf-8") as f:
             f.write(self.render())
         return path
 
@@ -341,30 +341,42 @@ def stack(theme):
 
 # ------------------------------------------------------------------ project cards
 PROJECTS = [
-    dict(slug="sentinel", num="01", cat="DATA ENGINEERING / DATABRICKS", title="Sentinel",
-         sub="Pipeline observability & auto-remediation",
-         desc="Live Jobs API monitoring, auto-detected incidents, and a human-approved rerun loop. Runs as two Databricks Apps.",
-         status=("live on Databricks", "ok"), chips=["Next.js", "FastAPI", "Databricks SDK", "Delta Lake"], glyph="pulse"),
-    dict(slug="fmcg", num="02", cat="DATA ENGINEERING / ETL", title="FMCG Sales Pipeline",
-         sub="Raw retail exports into a Power BI star schema",
-         desc="Tested PySpark ETL with validation and dimensional modeling, built to run on Windows without Hadoop.",
-         status=("39 tests passing", "ok"), chips=["PySpark", "pytest", "YAML", "Power BI"], glyph="star"),
-    dict(slug="erp", num="03", cat="BACKEND / DJANGO", title="Incubation ERP",
-         sub="System of record for a startup incubator",
-         desc="Replaced spreadsheets, email and WhatsApp: 5 roles, 11 Django apps, RBAC across 30+ resource types.",
-         status=("shipped internally", "gold"), chips=["Django", "PostgreSQL", "RBAC", "Bootstrap"], glyph="grid"),
-    dict(slug="lastmile", num="04", cat="FULL-STACK / LOGISTICS", title="Last-Mile Tracker",
-         sub="Pricing, routing & delivery tracking",
-         desc="Configurable pricing engine, zone-based routing, agent assignment, and immutable delivery tracking.",
-         status=("completed", "gold"), chips=["React", "Express", "PostgreSQL", "Drizzle"], glyph="route"),
-    dict(slug="worklog", num="05", cat="AI / AUTOMATION", title="Worklog Automation",
-         sub="WhatsApp worklogs into structured task data",
-         desc="LLM extraction with a rule-based fallback, carry-forward backlogs, and daily Excel / PDF reports.",
-         status=("shipped internally", "gold"), chips=["FastAPI", "PostgreSQL", "OpenAI / Gemini"], glyph="chat"),
-    dict(slug="abov", num="06", cat="FULL-STACK / PRODUCT", title="Abov",
+    dict(slug="autcore", num="01", cat="AI & GENAI / COMPUTER VISION", title="AutCore",
+         sub="AI-driven autism screening tool",
+         desc="Oculomotor and facial-behavior analysis, speech disfluency analysis, and a conversational screening assistant.",
+         status=("1st place · HackHub'25", "gold"), chips=["Python", "TensorFlow", "OpenCV", "MediaPipe"], glyph="eye"),
+    dict(slug="abov", num="02", cat="FULL-STACK / PRODUCT", title="Abov",
          sub="Career & hiring platform",
          desc="Job search, skill-gap planning, and match scoring for employers. Live demo runs on seeded data.",
          status=("live demo", "ok"), chips=["Next.js", "Prisma", "PostgreSQL", "Auth.js"], glyph="match"),
+    dict(slug="women360", num="03", cat="FULL-STACK / HEALTHTECH", title="Women360",
+         sub="Health & wellness SaaS",
+         desc="Unifies menstrual, nutrition, sleep and mental-wellbeing tracking, with a dedicated Senior Mode for older adults.",
+         status=("in development", "cool"), chips=["React", "TypeScript", "Express", "PostgreSQL"], glyph="orbit"),
+    dict(slug="sentinel", num="04", cat="DATA ENGINEERING / DATABRICKS", title="Sentinel",
+         sub="Pipeline observability & auto-remediation",
+         desc="Live Jobs API monitoring, auto-detected incidents, and a human-approved rerun loop. Runs as two Databricks Apps.",
+         status=("live on Databricks", "ok"), chips=["Next.js", "FastAPI", "Databricks SDK", "Delta Lake"], glyph="pulse"),
+    dict(slug="fmcg", num="05", cat="DATA ENGINEERING / ETL", title="FMCG Sales Pipeline",
+         sub="Raw retail exports into a Power BI star schema",
+         desc="Tested PySpark ETL with validation and dimensional modeling, built to run on Windows without Hadoop.",
+         status=("39 tests passing", "ok"), chips=["PySpark", "pytest", "YAML", "Power BI"], glyph="star"),
+    dict(slug="ev", num="06", cat="DATA ENGINEERING / LAKEHOUSE", title="EV Fleet Lakehouse",
+         sub="Medallion architecture for fleet telemetry",
+         desc="Bronze/Silver/Gold pipeline design consolidating vehicle telemetry, charging and maintenance data.",
+         status=("in progress", "cool"), chips=["Databricks", "PySpark", "Delta Lake", "Unity Catalog"], glyph="layers"),
+    dict(slug="erp", num="07", cat="BACKEND / DJANGO", title="Incubation ERP",
+         sub="System of record for a startup incubator",
+         desc="Replaced spreadsheets, email and WhatsApp: 5 roles, 11 Django apps, RBAC across 30+ resource types.",
+         status=("shipped internally", "gold"), chips=["Django", "PostgreSQL", "RBAC", "Bootstrap"], glyph="grid"),
+    dict(slug="lastmile", num="08", cat="FULL-STACK / LOGISTICS", title="Last-Mile Tracker",
+         sub="Pricing, routing & delivery tracking",
+         desc="Configurable pricing engine, zone-based routing, agent assignment, and immutable delivery tracking.",
+         status=("completed", "gold"), chips=["React", "Express", "PostgreSQL", "Drizzle"], glyph="route"),
+    dict(slug="worklog", num="09", cat="AI / AUTOMATION", title="Worklog Automation",
+         sub="WhatsApp worklogs into structured task data",
+         desc="LLM extraction with a rule-based fallback, carry-forward backlogs, and daily Excel / PDF reports.",
+         status=("shipped internally", "gold"), chips=["FastAPI", "PostgreSQL", "OpenAI / Gemini"], glyph="chat"),
 ]
 
 
@@ -414,6 +426,28 @@ def glyph(d, kind, gx, gy):
         return (f'<circle cx="{gx + 44}" cy="{gy + 34}" r="28" fill="none" stroke="{s}" stroke-width="2.2"/>'
                 f'<circle cx="{gx + 80}" cy="{gy + 34}" r="28" fill="none" stroke="{s}" stroke-width="2.2"/>'
                 f'<path class="pulse" d="M{gx + 62},{gy + 12} a28,28 0 0 1 0,44 a28,28 0 0 1 0,-44 z" fill="{a}" opacity=".85"/>')
+    if kind == "eye":
+        cx, cy = gx + 60, gy + 35
+        path = f"M{gx},{cy} Q{cx},{gy + 2} {gx + 120},{cy} Q{cx},{gy + 68} {gx},{cy} Z"
+        return (f'<path d="{path}" fill="none" stroke="{s}" stroke-width="2.2"/>'
+                f'<circle cx="{cx}" cy="{cy}" r="16" fill="none" stroke="{a}" stroke-width="2.2"/>'
+                f'<circle class="pulse" cx="{cx}" cy="{cy}" r="7" fill="{a}"/>'
+                f'<line x1="{gx - 4}" y1="{cy}" x2="{gx + 124}" y2="{cy}" stroke="{s}" stroke-width="1.4" stroke-dasharray="2 5" opacity="0.5"/>')
+    if kind == "orbit":
+        cx, cy = gx + 55, gy + 35
+        return (f'<circle cx="{cx}" cy="{cy}" r="30" fill="none" stroke="{s}" stroke-width="2"/>'
+                f'<circle cx="{cx}" cy="{cy}" r="18" fill="none" stroke="{s}" stroke-width="2"/>'
+                f'<circle cx="{cx}" cy="{cy}" r="4" fill="{a}"/>'
+                f'<circle r="5" fill="{a}"><animateMotion dur="4s" repeatCount="indefinite" path="M {cx + 30},{cy} a30,30 0 1,1 -0.01,0"/></circle>'
+                f'<circle r="3.5" fill="{a}" opacity="0.6"><animateMotion dur="2.6s" repeatCount="indefinite" path="M {cx + 18},{cy} a18,18 0 1,1 -0.01,0"/></circle>')
+    if kind == "layers":
+        colors = [t["bronze"], t["silver"], t["gold"]]
+        out = ""
+        for i, col in enumerate(colors):
+            yy = gy + 50 - i * 20
+            out += (f'<rect class="pulse" style="animation-delay:{i * 0.3:.1f}s" x="{gx}" y="{yy}" width="120" height="16" rx="4" '
+                    f'fill="{t["raised"]}" stroke="{col}" stroke-width="2.4"/>')
+        return out
     return ""
 
 
