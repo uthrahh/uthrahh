@@ -87,5 +87,5 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/uthrahh/uthrahh/main/readme-assets/footer-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/uthrahh/uthrahh/main/readme-assets/footer-light.svg" />
-  <img src="https://raw.githubusercontent.com/uthrahh/uthrahh/main/readme-assets/footer-dark.svg" alt="Let's talk data. uthrahrk@gmail.com, linkedin.com/in/uthrah-rk, uthrahrk.vercel.app" width="100%" />
+  <img src="https://raw.githubusercontent.com/uthrahh/uthrahh/main/readme-assets/footer-dark.svg" alt="uthrahrk@gmail.com, linkedin.com/in/uthrah-rk, uthrahrk.vercel.app" width="100%" />
 </picture>
