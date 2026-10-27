@@ -101,9 +101,9 @@ export const experience: ExperienceItem[] = [
     employmentType: "Internship",
     workMode: "On-site",
     city: "Chennai",
-    duration: "3mo",
+    duration: "4mo",
     start: "July 2026",
-    end: "Present",
+    end: "October 2026",
     summary:
       "Worked as a Data Engineer Intern building ETL/ELT pipelines, dimensional data models, and Power BI reporting on Databricks, in a SAP-oriented enterprise environment.",
     highlightGroups: [
