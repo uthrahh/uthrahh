@@ -7,6 +7,7 @@ import { useProjectModal } from "@/components/ProjectModalProvider";
 import { projects } from "@/lib/data/projects";
 import type { Project } from "@/lib/types";
 
+<<<<<<< HEAD
 // Display order: the Data Engineering work leads (Sentinel first), then the
 // hackathon win; every other project follows, featured ones first.
 const PRIORITY_ORDER = [
@@ -15,6 +16,21 @@ const PRIORITY_ORDER = [
   "ev-fleet-lakehouse-platform",
   "ai-powered-sap-erp-intelligence-assistant",
   "autcore",
+=======
+// Display order: data engineering proof first (Sentinel is the lead asset),
+// then analytics, the hackathon win, and backend/product work.
+const PRIORITY_ORDER = [
+  "autcore",
+"abov-hr",
+"women360",
+"data-pipeline-sentinel",
+"reckitt-sales-analytics-pipeline",
+"aic-erp",
+"ev-fleet-lakehouse-platform",
+"aic-worklog-automation",
+"aic-facility-booking",
+"last-mile-delivery-tracker",
+>>>>>>> a924b1a6cbcdfc07f3ee01c081c67353d41995bd
 ];
 
 export function ProjectsSection() {

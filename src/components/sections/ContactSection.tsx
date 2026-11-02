@@ -28,7 +28,12 @@ export function ContactSection() {
           <div className="relative">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent-strong">06 · Contact</p>
             <p className="mx-auto mt-5 max-w-lg text-[15px] leading-relaxed text-ink-muted">
+<<<<<<< HEAD
               Looking for full-time Data Engineer roles starting 2027. A pipeline problem worth a second pair of eyes is welcome too.
+=======
+              Looking for full-time Data Engineer, Data Analyst and Software Development Engineer roles
+              starting 2027. A pipeline problem worth a second pair of eyes is welcome too.
+>>>>>>> a924b1a6cbcdfc07f3ee01c081c67353d41995bd
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">

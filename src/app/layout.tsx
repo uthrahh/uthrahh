@@ -46,6 +46,11 @@ export const metadata: Metadata = {
     "Pavithra Uthrah",
     "Data Engineer",
     "Data Engineering",
+<<<<<<< HEAD
+=======
+    "Data Analyst",
+    "Software Development Engineer",
+>>>>>>> a924b1a6cbcdfc07f3ee01c081c67353d41995bd
     "PySpark",
     "SQL",
     "Delta Lake",
