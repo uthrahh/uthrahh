@@ -22,7 +22,7 @@ export default function OGImage() {
       >
         <div style={{ display: "flex", alignItems: "center", fontSize: 26, color: "#e07a1f", letterSpacing: 3 }}>
           <span style={{ display: "flex", color: "#85847a", marginRight: 14 }}>~/uthrahh</span>
-          DATA ENGINEER · DATA ANALYST · SDE
+          DATA ENGINEER
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", fontSize: 76, color: "#efeee6", fontWeight: 700, letterSpacing: -2 }}>

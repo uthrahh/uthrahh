@@ -16,11 +16,7 @@ const SIGNATURE_STACK = [
   "Delta Lake",
   "Unity Catalog",
   "Power BI",
-  "FastAPI",
-  "Django",
   "PostgreSQL",
-  "React",
-  "Next.js",
   "Docker",
   "RAG",
 ];
@@ -28,8 +24,8 @@ const SIGNATURE_STACK = [
 // Every figure here is traceable to a case study or the data files.
 const FACTS = [
   { value: "39", label: "automated tests", sub: "FMCG PySpark pipeline" },
-  { value: "140+", label: "startups served", sub: "facility booking backend" },
-  { value: "3", label: "backend systems", sub: "shipped in one month" },
+  { value: "30+", label: "KPIs defined", sub: "EV fleet Lakehouse" },
+  { value: "32", label: "evaluation questions", sub: "SAP ERP assistant" },
   { value: "1st", label: "of 500 teams", sub: "HackHub'25 · AutCore" },
   { value: "#1", label: "of 110+ clubs", sub: "OSPC · 250+ members" },
 ];
@@ -78,7 +74,6 @@ export function HomeSection() {
 
             <p className="mt-5 text-sm font-medium sm:text-base">
               <span className="text-accent-strong">Data Engineer</span>
-              <span className="text-ink-muted"> · Data Analyst · Software Development Engineer</span>
             </p>
 
             <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-ink-muted">
@@ -86,8 +81,8 @@ export function HomeSection() {
               <span className="font-medium text-ink">Data Engineering intern at KaarTech</span> I built a tested
               PySpark pipeline into a Power BI star schema and shipped{" "}
               <span className="font-medium text-ink">Sentinel</span>, a pipeline observability app running on a
-              live Databricks workspace. At AIC-CIIC I built three backend systems in one month with Django,
-              FastAPI and PostgreSQL.
+              live Databricks workspace, and designed the Medallion architecture for a commercial EV fleet
+              Lakehouse.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
