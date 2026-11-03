@@ -9,7 +9,7 @@ export function ExperienceSection() {
   return (
     <Section id="experience">
       <Container>
-        <SectionHeading index="01" title="Experience" caption="where I've shipped" />
+        <SectionHeading index="04.1" title="Experience" caption="where I've shipped" />
 
         <div className="relative mt-12">
           {/* timeline rail, aligned with the centre of the org marks */}

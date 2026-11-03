@@ -18,6 +18,7 @@ import { SearchIcon } from "@/components/icons";
 import { projects } from "@/lib/data/projects";
 import { site } from "@/lib/data/site";
 import { NAV_SECTIONS } from "@/components/navSections";
+import { scrollToId } from "@/lib/scroll";
 
 type Command = {
   id: string;
@@ -34,19 +35,6 @@ export function useCommandPalette() {
   return useContext(PaletteContext);
 }
 
-/** Toggles the site theme and tells every ThemeToggle to re-sync. */
-export function toggleTheme() {
-  const root = document.documentElement;
-  const current =
-    root.getAttribute("data-theme") ??
-    (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-  const next = current === "dark" ? "light" : "dark";
-  root.setAttribute("data-theme", next);
-  try {
-    localStorage.setItem("theme", next);
-  } catch {}
-  window.dispatchEvent(new Event("themechange"));
-}
 
 export function CommandPaletteProvider({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -92,7 +80,7 @@ function Palette({ onClose }: { onClose: () => void }) {
     const go = (id: string) => () => {
       onClose();
       if (pathname !== "/") router.push(`/#${id}`);
-      else document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      else scrollToId(id);
     };
     const ext = (href: string) => () => {
       onClose();
@@ -148,16 +136,6 @@ function Palette({ onClose }: { onClose: () => void }) {
             },
           ]
         : []),
-      {
-        id: "a-theme",
-        group: "Actions",
-        label: "Toggle light / dark theme",
-        keywords: "dark mode light mode appearance",
-        run: () => {
-          toggleTheme();
-          onClose();
-        },
-      },
       { id: "l-github", group: "Links", label: "GitHub", hint: "github.com/uthrahh", run: ext(site.github) },
       { id: "l-linkedin", group: "Links", label: "LinkedIn", hint: "in/uthrah-rk", run: ext(site.linkedin) },
       { id: "l-substack", group: "Links", label: "Substack", hint: "@uthrahhh", run: ext(site.substack) },

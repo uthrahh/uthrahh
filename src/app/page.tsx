@@ -1,25 +1,29 @@
-import { HomeSection } from "@/components/sections/HomeSection";
+import { Story } from "@/components/story/Story";
+import { Street } from "@/components/story/Street";
+import { Pipeline } from "@/components/story/Pipeline";
+import { PlayerCard } from "@/components/story/PlayerCard";
+import { Missions } from "@/components/story/Missions";
+import { Finale } from "@/components/story/Finale";
 import { ExperienceSection } from "@/components/sections/ExperienceSection";
-import { ProjectsSection } from "@/components/sections/ProjectsSection";
-import { SkillsSection } from "@/components/sections/SkillsSection";
 import { EducationSection } from "@/components/sections/EducationSection";
 import { InterestsSection } from "@/components/sections/InterestsSection";
-import { ContactSection } from "@/components/sections/ContactSection";
-// import { ArticlesSection } from "@/components/sections/ArticlesSection";
 
-// Languages now render inside the "Beyond the pipeline" section
-// (InterestsSection) under the #languages anchor.
+// One scroll, six chapters: the story, the street (projects), the pipeline
+// (skills), under the hood (about, experience, education), missions, contact.
 export default function Home() {
   return (
     <>
-      <HomeSection />
-      <ExperienceSection />
-      <ProjectsSection />
-      <SkillsSection />
-      <EducationSection />
-      <InterestsSection />
-      {/* <ArticlesSection /> */}
-      <ContactSection />
+      <Story />
+      <Street />
+      <Pipeline />
+      <div id="chapter-about">
+        <PlayerCard />
+        <ExperienceSection />
+        <EducationSection />
+        <InterestsSection />
+      </div>
+      <Missions />
+      <Finale />
     </>
   );
 }

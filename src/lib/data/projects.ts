@@ -566,11 +566,17 @@ export const projects: Project[] = [
     status: "Completed",
     cover: {
       kind: "dashboard",
-      src: "/reckitt-sales-analytics-pipeline-cover.png",
+      src: "/reckitt-sales-analytics-pipeline-cover.jpg",
       alt: "Power BI executive overview dashboard built on the curated star schema",
       aspect: "16/9",
     },
     gallery: [
+      {
+        kind: "dashboard",
+        src: "/reckitt-sales-analytics-pipeline-gallery-3.jpg",
+        alt: "Power BI products and brands page: revenue by category and year, brand revenue, and brand and category performance",
+        aspect: "16/9",
+      },
       {
         kind: "code",
         src: "/reckitt-sales-analytics-pipeline-gallery-1.svg",
@@ -682,73 +688,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "ai-powered-sap-erp-intelligence-assistant",
-    title: "AI-Powered SAP ERP Intelligence Assistant",
-    summary:
-      "A proof-of-concept architecture combining Databricks Genie (structured SAP data) with a RAG layer (policy documents) into a single natural-language procurement assistant.",
-    categories: ["AI & GenAI", "Data Engineering"],
-    technologies: ["Databricks", "Databricks Genie", "RAG", "Vector Search", "Unity Catalog", "SAP data model"],
-    role: "AI/data engineer, architecture & knowledge base (solo)",
-    context: "Data Engineering Internship, KaarTech",
-    featured: true,
-    status: "Proof of concept",
-    cover: {
-      kind: "architecture",
-      src: "/ai-powered-sap-erp-intelligence-assistant-cover.svg",
-      alt: "Query routing architecture between Databricks Genie and the RAG knowledge base",
-      aspect: "16/9",
-    },
-    gallery: [
-      {
-        kind: "documentation",
-        src: "/ai-powered-sap-erp-intelligence-assistant-gallery-1.svg",
-        alt: "Business glossary translating SAP fields to business terms",
-        aspect: "4/3",
-      },
-    ],
-    links: [
-      { label: "Repository", href: "https://github.com/uthrahh/AI-Powered-SAP-ERP-Intelligence-Assistant", kind: "repo" },
-    ],
-    sections: [
-      {
-        heading: "Problem",
-        body: [
-          "SAP ERP systems hold procurement data behind technical table and field names that business users can't query directly, and the policies governing that data (approval thresholds, vendor eligibility) live in separate documents entirely disconnected from the live data. Answering a real procurement question often needs both at once.",
-        ],
-      },
-      {
-        heading: "Architecture",
-        body: [
-          "Two complementary retrieval paths sit behind one orchestration layer. Databricks Genie queries structured SAP procurement tables in Unity Catalog (EKKO/purchase order headers, EKPO/line items, LFA1/vendor master, MARA/material master) for spend and transaction questions; a RAG layer over six knowledge-base documents answers policy and process questions.",
-          "The knowledge base was purpose-built, not just dumped in: a procurement policy (approval thresholds, compliance rules), a purchase-order SOP (lifecycle stages), a vendor management policy (classification/eligibility), a business glossary translating SAP field names into business language, analytics definitions (so metrics are computed consistently across queries), and an FAQ/scenarios document calibrating response structure.",
-          "The orchestration layer routes each query to Genie-only, RAG-only, or a hybrid of both. Hybrid routing matters most for compliance questions, which need a live number from Genie (this quarter's spend with a vendor, for example) evaluated against a policy rule from RAG (the approval threshold that applies).",
-        ],
-      },
-      {
-        heading: "Evaluation design",
-        body: [
-          "Built a 32-question evaluation set deliberately balanced across the three routing patterns: 10 RAG-only (policy/process questions), 10 Genie-only (structured spend aggregations), and 12 hybrid (compliance judgments requiring both live data and policy rules), designed to catch routing errors, not just wrong answers.",
-        ],
-      },
-      {
-        heading: "Why the glossary document mattered most",
-        body: [
-          "The business glossary was treated as the translation layer of the whole system: it's what lets a response convert Genie's technical output (raw SAP field values) into the business-facing language a procurement stakeholder actually uses, which is the core of what 'masking SAP complexity' means in practice rather than just a marketing phrase.",
-        ],
-      },
-      {
-        heading: "Status",
-        body: [
-          "Knowledge base, SAP data extracts, Unity Catalog structure, and the evaluation framework are complete and documented in the repository. Genie configuration and the agentic orchestration layer were built and tested within KaarTech's Databricks workspace as part of the internship.",
-        ],
-      },
-    ],
-    metrics: [
-      { label: "Evaluation questions", value: "32 (10 RAG / 10 Genie / 12 hybrid)" },
-      { label: "Knowledge base documents", value: "6" },
-    ],
-  },
-  {
     slug: "data-pipeline-sentinel",
     title: "Sentinel: Databricks Pipeline Observability & Remediation Platform",
     summary:
@@ -775,7 +714,7 @@ export const projects: Project[] = [
     status: "Shipped internally",
     cover: {
       kind: "dashboard",
-      src: "/sentinel-dashboard.png",
+      src: "/sentinel-dashboard.webp",
       alt: "Sentinel pipeline observability dashboard showing live Databricks job monitoring and incident management",
       aspect: "16/9",
     },

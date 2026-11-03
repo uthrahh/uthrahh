@@ -34,7 +34,7 @@ export function SectionHeading({
         {index ? (
           <span className="font-mono text-sm font-medium text-accent-strong">{index}</span>
         ) : null}
-        <h2 className="shrink-0 text-[1.7rem] font-bold leading-none tracking-tight text-ink sm:text-[2.1rem]">
+        <h2 className="shrink-0 text-[1.7rem] font-black uppercase leading-none tracking-tight text-ink sm:text-[2.1rem]">
           {heading}
         </h2>
         <span aria-hidden="true" className="relative hidden h-px flex-1 bg-border-strong sm:block">

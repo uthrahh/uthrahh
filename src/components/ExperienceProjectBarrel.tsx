@@ -13,7 +13,7 @@ const RESUME_DELAY_MS = 6000;
 
 /**
  * The projects tied to one work experience, presented as a true 3D vertical
- * drum that spins continuously and smoothly — like `RoleCylinder`, but
+ * drum that spins continuously and smoothly — like a rotating drum, but
  * rotating around a horizontal axis. Every project sits at its own fixed
  * angle around the drum; the whole ring rotates via a CSS keyframe
  * animation, so motion is genuinely continuous rather than stepping from

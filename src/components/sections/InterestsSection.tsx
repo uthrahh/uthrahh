@@ -6,7 +6,7 @@ export function InterestsSection() {
   return (
     <Section id="about">
       <Container>
-        <SectionHeading index="05" title="Beyond the pipeline" caption="echo $WHY" />
+        <SectionHeading index="04.3" title="Beyond the pipeline" caption="echo $WHY" />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-[1.6fr_1fr]">
           <div id="interests" data-reveal="" className="relative overflow-hidden rounded-2xl border border-border bg-paper-raised p-6 sm:p-8">

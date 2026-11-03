@@ -1,35 +1,24 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Serif, IBM_Plex_Mono } from "next/font/google";
+import { Archivo, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { SiteNav } from "@/components/SiteNav";
 import { CommandPaletteProvider } from "@/components/CommandPalette";
 import { RevealObserver } from "@/components/Reveal";
-import { ScrollToTop } from "@/components/ScrollToTop";
 import { Footer } from "@/components/Footer";
-import { ThemeScript } from "@/components/ThemeScript";
 import { ProjectModalProvider } from "@/components/ProjectModalProvider";
 import { ResumeModalProvider } from "@/components/ResumeModalProvider";
+import { SmoothScroll } from "@/components/story/SmoothScroll";
+import { StoryChrome } from "@/components/story/StoryChrome";
 import { site } from "@/lib/data/site";
 
-const plexSans = IBM_Plex_Sans({
-  variable: "--font-plex-sans",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const plexSerif = IBM_Plex_Serif({
-  variable: "--font-plex-serif",
+const jetbrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
   display: "swap",
 });
 
@@ -46,6 +35,8 @@ export const metadata: Metadata = {
     "Pavithra Uthrah",
     "Data Engineer",
     "Data Engineering",
+    "Freelance Software Developer",
+    "Application Developer",
     "PySpark",
     "SQL",
     "Delta Lake",
@@ -75,23 +66,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${plexSans.variable} ${plexSerif.variable} ${plexMono.variable} h-full`}
-      suppressHydrationWarning
-    >
-      <head>
-        <ThemeScript />
-      </head>
-      <body className="flex min-h-full flex-col antialiased">
+    <html lang="en" className={`${archivo.variable} ${jetbrains.variable}`} suppressHydrationWarning>
+      <body className="antialiased">
         <ResumeModalProvider>
           <ProjectModalProvider>
             <CommandPaletteProvider>
-              <SiteNav />
-              <ScrollToTop />
               <RevealObserver />
-              <main className="flex-1">{children}</main>
-              <Footer />
+              <SmoothScroll chrome={<StoryChrome />}>
+                <main>{children}</main>
+                <div className="night bg-paper">
+                  <Footer />
+                </div>
+              </SmoothScroll>
             </CommandPaletteProvider>
           </ProjectModalProvider>
         </ResumeModalProvider>

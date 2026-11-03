@@ -160,16 +160,6 @@ export const experience: ExperienceItem[] = [
         contribution:
           "Defined the source-system model, business-entity graph, Bronze/Silver/Gold architecture, 30+ KPIs, and audit/orchestration requirements; prepared the synthetic datasets for the build phase.",
       },
-      {
-        title: "AI-powered SAP ERP intelligence assistant",
-        oneLiner: "RAG + Genie architecture for a natural-language SAP procurement assistant.",
-        technologies: ["Databricks", "Databricks Genie", "RAG", "Vector Search", "Unity Catalog"],
-        projectSlug: "ai-powered-sap-erp-intelligence-assistant",
-        context:
-          "SAP procurement data sits behind technical field names business users can't query, while the policies governing that data live in separate, disconnected documents.",
-        contribution:
-          "Designed the two-path retrieval architecture (Genie for structured SAP data, RAG for policy documents), built the six-document knowledge base, and authored a 32-question evaluation set balanced across routing patterns.",
-      },
     ],
     technologies: [
       "Python",
