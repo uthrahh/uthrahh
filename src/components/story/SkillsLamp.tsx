@@ -69,32 +69,76 @@ function Lamp() {
   );
 }
 
-function Switch({ on, onToggle }: { on: boolean; onToggle: () => void }) {
+
+type Mode = "tour" | "data" | "sde" | "all";
+type Side = "data" | "sde" | "both";
+
+// Which side of the work a skill belongs to. Categories decide most of it;
+// the ones that straddle both sides are listed one by one.
+const CATEGORY_SIDE: Record<string, Side> = {
+  "Data Engineering": "data",
+  "Data & BI": "data",
+  "AI & GenAI": "data",
+  "Machine Learning": "data",
+  "Backend & APIs": "sde",
+  Frontend: "sde",
+};
+const SKILL_SIDE: Record<string, Side> = {
+  Python: "both",
+  SQL: "data",
+  TypeScript: "sde",
+  JavaScript: "sde",
+  Java: "sde",
+  C: "sde",
+  "C++": "sde",
+  PostgreSQL: "both",
+  SQLite: "sde",
+  "Azure Databricks": "data",
+  Docker: "sde",
+  "Git / GitHub": "both",
+  "Alembic migrations": "sde",
+  pytest: "both",
+};
+const sideOf = (category: string, skill: string): Side => CATEGORY_SIDE[category] ?? SKILL_SIDE[skill] ?? "both";
+const inSpotlight = (mode: Mode, side: Side) => (mode !== "data" && mode !== "sde") || side === "both" || side === mode;
+
+const SIDE_BUTTONS = [
+  { mode: "data", label: "Data & AI" },
+  { mode: "sde", label: "SDE" },
+  { mode: "all", label: "All" },
+] as const;
+
+const HINT: Record<Mode, string> = {
+  tour: "Or pick a side to spotlight just those tools, or All to light everything.",
+  data: "Showing the data and AI tools. Press it again for the lamp tour.",
+  sde: "Showing the software development tools. Press it again for the lamp tour.",
+  all: "Every light is on. Press All again for the lamp tour.",
+};
+
+function SideFilter({ mode, onChange }: { mode: Mode; onChange: (m: Mode) => void }) {
   return (
-    <button
-      type="button"
-      role="switch"
-      aria-checked={on}
-      onClick={onToggle}
-      data-cursor={on ? "Lamp mode" : "Big light"}
-      className="group flex items-center gap-4 text-left"
-    >
-      <span className="relative block h-[96px] w-[62px] rounded-xl border-2 border-[#3a4456] bg-[#d9d3c5] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.8)]">
-        <span className="absolute left-1/2 top-1/2 h-[64px] w-[26px] -translate-x-1/2 -translate-y-1/2 rounded-md bg-[#b9b2a2]" />
-        <span
-          className={`absolute left-1/2 h-[34px] w-[22px] -translate-x-1/2 rounded-md bg-[#ff6a13] shadow-md transition-all duration-300 ${
-            on ? "top-[16px]" : "top-[46px]"
-          }`}
-        />
-      </span>
-      <span>
-        <span className="block font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-[#f4f1ea]">Big light</span>
-        <span className="mt-1 block font-mono text-[11px] uppercase tracking-[0.2em] text-[#ffb547]">{on ? "On" : "Off"}</span>
-        <span className="mt-2 block max-w-[150px] text-[12px] leading-snug text-[#8d96a6]">
-          {on ? "Everything is lit. Flip it back for the lamp." : "Flip it to see every skill at once."}
-        </span>
-      </span>
-    </button>
+    <div role="group" aria-label="Spotlight a side">
+      <p className="font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-[#f4f1ea]">Spotlight</p>
+      <div className="mt-3 flex gap-2">
+        {SIDE_BUTTONS.map((b) => (
+          <button
+            key={b.mode}
+            type="button"
+            aria-pressed={mode === b.mode}
+            onClick={() => onChange(mode === b.mode ? "tour" : b.mode)}
+            data-cursor={mode === b.mode ? "Lamp tour" : b.mode === "all" ? "Light all" : "Spotlight"}
+            className={`rounded-full border-2 px-4 py-2.5 font-mono text-[12px] font-bold uppercase tracking-[0.12em] transition-colors ${
+              mode === b.mode
+                ? "border-[#ff6a13] bg-[#ff6a13] text-[#16130f]"
+                : "border-[#3a4456] text-[#f4f1ea] hover:border-[#ff6a13] hover:text-[#ff8a3d]"
+            }`}
+          >
+            {b.label}
+          </button>
+        ))}
+      </div>
+      <p className="mt-3 max-w-[270px] text-[12px] leading-snug text-[#8d96a6]">{HINT[mode]}</p>
+    </div>
   );
 }
 
@@ -104,7 +148,7 @@ export function SkillsLamp() {
   const counter = useRef<HTMLSpanElement>(null);
   const bar = useRef<HTMLSpanElement>(null);
   const ready = useScrollReady();
-  const [bright, setBright] = useState(false);
+  const [mode, setMode] = useState<Mode>("tour");
   const [active, setActive] = useState(0);
 
   const groups = ORDER.flatMap((cat) => {
@@ -202,7 +246,7 @@ export function SkillsLamp() {
     <section
       id="skills"
       ref={root}
-      className={`night skills-room relative overflow-hidden bg-paper ${bright ? "is-bright" : ""}`}
+      className={`night skills-room relative overflow-hidden bg-paper ${mode === "all" ? "is-bright" : ""} ${mode === "data" || mode === "sde" ? "is-filtered" : ""}`}
     >
       <div aria-hidden="true" className="skills-glow pointer-events-none absolute inset-0" />
 
@@ -231,11 +275,13 @@ export function SkillsLamp() {
             </p>
           </div>
           <div className="absolute bottom-[40px] left-0">
-            <Switch on={bright} onToggle={() => setBright((b) => !b)} />
+            <SideFilter mode={mode} onChange={setMode} />
           </div>
 
           {groups.map((g, i) => {
-            const lit = bright || i === active;
+            const lit =
+              mode === "all" ||
+              (mode === "tour" ? i === active : g.skills.some((s) => inSpotlight(mode, sideOf(g.category, s))));
             return (
               <div
                 key={g.category}
@@ -249,7 +295,12 @@ export function SkillsLamp() {
                 </div>
                 <ul className="mt-3 flex flex-wrap gap-1.5">
                   {g.skills.map((skill) => (
-                    <li key={skill} className="rounded-full border border-[#2b3341] bg-[#0f1217] px-2 py-[1px]">
+                    <li
+                      key={skill}
+                      className={`rounded-full border border-[#2b3341] bg-[#0f1217] px-2 py-[1px] transition-opacity duration-500 ${
+                        inSpotlight(mode, sideOf(g.category, skill)) ? "" : "opacity-25"
+                      }`}
+                    >
                       <SkillChip skill={skill} compact />
                     </li>
                   ))}
@@ -261,7 +312,11 @@ export function SkillsLamp() {
           <Lamp />
         </div>
 
-        <div className="pointer-events-none absolute bottom-6 right-[var(--gut)] z-10 flex items-center gap-4 font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-[#f4f1ea]">
+        <div
+          className={`pointer-events-none absolute bottom-6 right-[var(--gut)] z-10 flex items-center gap-4 font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-[#f4f1ea] transition-opacity duration-300 ${
+            mode === "tour" ? "opacity-100" : "opacity-0"
+          }`}
+        >
           <span>
             <span ref={counter}>01</span> / {String(n).padStart(2, "0")} skill sets
           </span>

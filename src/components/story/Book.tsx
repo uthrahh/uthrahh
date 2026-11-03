@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -248,20 +248,44 @@ export function Book() {
   const hint = useRef<HTMLParagraphElement>(null);
   const counter = useRef<HTMLSpanElement>(null);
   const bar = useRef<HTMLSpanElement>(null);
+  const prevBtn = useRef<HTMLButtonElement>(null);
+  const nextBtn = useRef<HTMLButtonElement>(null);
+  const nextLabel = useRef<HTMLSpanElement>(null);
+  const spread = useRef(0);
   const ready = useScrollReady();
   const openProject = useProjectModal();
   const list = orderedProjects();
   const N = list.length;
   const L = N + 2;
 
-  const jump = (j: number) => {
+  // Spread s means s leaves have turned: 0 is the closed cover, L is the last page.
+  const goToSpread = (s: number) => {
     const st = ScrollTrigger.getById("book");
     if (!st) return;
-    const y = st.start + ((j + 2) / L) * (st.end - st.start);
+    const target = Math.min(L, Math.max(0, s));
+    const y = st.start + (target / L) * (st.end - st.start);
     const smoother = ScrollSmoother.get();
     if (smoother) smoother.scrollTo(y, true);
     else window.scrollTo({ top: y, behavior: "smooth" });
   };
+  const jump = (j: number) => goToSpread(j + 2);
+  const turn = (dir: 1 | -1) => goToSpread(spread.current + dir);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+      const target = e.target as HTMLElement | null;
+      if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.tagName === "SELECT" || target.isContentEditable)) return;
+      if (document.querySelector("dialog[open]")) return;
+      if (!ScrollTrigger.getById("book")?.isActive) return;
+      e.preventDefault();
+      turn(e.key === "ArrowRight" ? 1 : -1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+    // turn only reads refs and constants, so it is safe to bind once
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useGSAP(
     () => {
@@ -293,6 +317,13 @@ export function Book() {
           if (counter.current) counter.current.textContent = pad(project);
           if (bar.current) bar.current.style.transform = `scaleX(${project / N})`;
           if (hint.current) hint.current.style.opacity = t < 0.15 ? "1" : "0";
+          spread.current = turned;
+          if (prevBtn.current) prevBtn.current.disabled = turned <= 0;
+          if (nextBtn.current) {
+            nextBtn.current.disabled = turned >= L;
+            nextBtn.current.classList.toggle("book-nudge", turned === 0);
+          }
+          if (nextLabel.current) nextLabel.current.textContent = turned === 0 ? "Open the book" : turned >= L ? "The end" : "Next page";
         };
         apply(0);
 
@@ -386,6 +417,30 @@ export function Book() {
         >
           <span className="h-px w-10 bg-[#ff6a13]" /> Scroll to open the book <span aria-hidden="true">↓</span>
         </p>
+
+        <div className="absolute bottom-5 right-[var(--gut)] z-20 flex items-center gap-3">
+          <button
+            ref={prevBtn}
+            type="button"
+            onClick={() => turn(-1)}
+            disabled
+            data-cursor="Back"
+            aria-label="Previous page"
+            className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-[#16130f] px-5 font-mono text-[12px] font-bold uppercase tracking-[0.14em] text-[#16130f] transition-colors hover:border-[#ff6a13] hover:text-[#c2450a] disabled:pointer-events-none disabled:opacity-30"
+          >
+            <span aria-hidden="true">←</span> Prev
+          </button>
+          <button
+            ref={nextBtn}
+            type="button"
+            onClick={() => turn(1)}
+            data-cursor="Turn"
+            aria-label="Next page"
+            className="inline-flex h-12 items-center gap-2 rounded-full bg-[#ff6a13] px-6 font-mono text-[12px] font-bold uppercase tracking-[0.14em] text-[#16130f] transition-colors hover:bg-[#16130f] hover:text-[#f4f1ea] disabled:pointer-events-none disabled:opacity-30"
+          >
+            <span ref={nextLabel}>Open the book</span> <span aria-hidden="true">→</span>
+          </button>
+        </div>
 
         <div className="pointer-events-none absolute bottom-6 left-[var(--gut)] z-10 flex items-center gap-4 font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-[#16130f]">
           <span>
