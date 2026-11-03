@@ -4,7 +4,7 @@ import { site } from "@/lib/data/site";
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = site.domain || site.siteUrlFallback;
 
-  return ["", "/privacy", "/terms"].map((path) => ({
+  return ["", "/work", "/privacy", "/terms"].map((path) => ({
     url: `${base}${path}`,
     lastModified: new Date(),
   }));

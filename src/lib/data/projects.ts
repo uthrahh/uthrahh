@@ -379,7 +379,7 @@ export const projects: Project[] = [
   },
   {
     slug: "aic-worklog-automation",
-    title: "WhatsApp Worklog Automation Platform",
+    title: "WhatsApp Automation Agent",
     summary:
       "An AI-assisted pipeline that turns unstructured WhatsApp worklog messages into structured, trackable task data and daily reports.",
     categories: ["Software Engineering", "AI & GenAI"],

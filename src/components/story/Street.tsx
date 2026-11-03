@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { MediaFrame } from "@/components/MediaFrame";
 import { useProjectModal } from "@/components/ProjectModalProvider";
 import { useScrollReady } from "./SmoothScroll";
@@ -169,6 +170,12 @@ export function Street() {
             <p className="mt-5 max-w-[360px] text-[16px] leading-relaxed text-[#4a443c]">
               Each one covers the problem, the architecture, and what actually shipped.
             </p>
+            <Link
+              href="/work"
+              className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#16130f] px-7 text-sm font-black uppercase tracking-wider text-[#f4f1ea] transition-colors hover:bg-[#ff6a13] hover:text-[#16130f]"
+            >
+              Browse the full list <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
       </div>

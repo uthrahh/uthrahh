@@ -94,6 +94,16 @@ function Palette({ onClose }: { onClose: () => void }) {
         hint: "section",
         run: go(s.id),
       })),
+      {
+        id: "go-work",
+        group: "Jump to" as const,
+        label: "All projects",
+        hint: "page",
+        run: () => {
+          onClose();
+          router.push("/work");
+        },
+      },
       ...projects.map((p) => ({
         id: `p-${p.slug}`,
         group: "Projects" as const,
