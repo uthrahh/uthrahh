@@ -17,7 +17,6 @@ export default function OGImage() {
           fontFamily: "sans-serif",
         }}
       >
-<<<<<<< HEAD
         <div style={{ display: "flex", width: 600, height: "100%", background: "#f4f1ea" }} />
         <div
           style={{
@@ -33,19 +32,6 @@ export default function OGImage() {
             <span style={{ display: "flex", color: "#16130f" }}>DATA ENGINEER</span>
             <span style={{ display: "flex", color: "#ff6a13", margin: "0 18px" }}>+</span>
             <span style={{ display: "flex", color: "#ffb547" }}>FREELANCE APP DEVELOPER</span>
-=======
-        <div style={{ display: "flex", alignItems: "center", fontSize: 26, color: "#e07a1f", letterSpacing: 3 }}>
-          <span style={{ display: "flex", color: "#85847a", marginRight: 14 }}>~/uthrahh</span>
-<<<<<<< HEAD
-          DATA ENGINEER
-=======
-          DATA ENGINEER · DATA ANALYST · SDE
->>>>>>> a924b1a6cbcdfc07f3ee01c081c67353d41995bd
-        </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", fontSize: 76, color: "#efeee6", fontWeight: 700, letterSpacing: -2 }}>
-            {site.name}
->>>>>>> 77400c05ea0f4a2d4449e683e0957c17d73a5827
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ display: "flex", fontSize: 88, color: "#16130f", fontWeight: 900, letterSpacing: -3, textTransform: "uppercase" }}>

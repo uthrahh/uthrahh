@@ -35,16 +35,8 @@ export const metadata: Metadata = {
     "Pavithra Uthrah",
     "Data Engineer",
     "Data Engineering",
-<<<<<<< HEAD
     "Freelance Software Developer",
     "Application Developer",
-=======
-<<<<<<< HEAD
-=======
-    "Data Analyst",
-    "Software Development Engineer",
->>>>>>> a924b1a6cbcdfc07f3ee01c081c67353d41995bd
->>>>>>> 77400c05ea0f4a2d4449e683e0957c17d73a5827
     "PySpark",
     "SQL",
     "Delta Lake",
