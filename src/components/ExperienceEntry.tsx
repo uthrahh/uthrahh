@@ -87,7 +87,7 @@ export function ExperienceEntry({ exp }: { exp: ExperienceItem }) {
               )}
             </h3>
             <p className="mt-1.5 font-mono text-[11.5px] uppercase tracking-wider text-ink-faint">
-              {exp.employmentType} · {exp.workMode} · {exp.city}
+              {exp.employmentType} · {exp.workMode}
             </p>
           </div>
           <span className="shrink-0 rounded-full border border-border bg-paper-raised px-3 py-1 font-mono text-xs text-ink-muted">

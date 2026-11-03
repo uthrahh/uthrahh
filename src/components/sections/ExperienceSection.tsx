@@ -1,6 +1,7 @@
 import { Container } from "@/components/Container";
 import { Section, SectionHeading } from "@/components/ui";
 import { ExperienceEntry } from "@/components/ExperienceEntry";
+import { GitRail } from "@/components/GitRail";
 import { MediaFrame } from "@/components/MediaFrame";
 import { experience } from "@/lib/data/experience";
 import { communitySocial } from "@/lib/data/leadership";
@@ -13,7 +14,7 @@ export function ExperienceSection() {
 
         <div className="relative mt-12">
           {/* timeline rail, aligned with the centre of the org marks */}
-          <span aria-hidden="true" className="absolute bottom-4 left-6 top-4 w-px bg-border" />
+          <GitRail />
           <ol className="relative space-y-14">
             {experience.map((exp) => (
               <ExperienceEntry key={exp.org} exp={exp} />

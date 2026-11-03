@@ -2,17 +2,17 @@ import type { ActivityEntry, HackathonEntry } from "@/lib/types";
 
 export const clubLeadership: ActivityEntry[] = [
   {
-    org: "Open Source Programming Club, VIT Chennai",
+    org: "Open Source Programming Club, VIT",
     orgUrl: "https://www.linkedin.com/company/opensource-programming-club-vitc/",
     role: "Chairperson",
     start: "April 2026",
     end: "Present",
     detail: [
-      "Took over as Chairperson for the 2026-27 tenure after the club was recognized as VIT Chennai's Best Tech Club for 2025-26.",
+      "Took over as Chairperson for the 2026-27 tenure after the club was recognized as VIT's Best Tech Club for 2025-26.",
     ],
   },
   {
-    org: "Open Source Programming Club, VIT Chennai",
+    org: "Open Source Programming Club, VIT",
     orgUrl: "https://www.linkedin.com/company/opensource-programming-club-vitc/",
     role: "Vice Chairperson",
     start: "April 2025",
@@ -26,7 +26,7 @@ export const clubLeadership: ActivityEntry[] = [
     ],
   },
   {
-    org: "Open Source Programming Club, VIT Chennai",
+    org: "Open Source Programming Club, VIT",
     orgUrl: "https://www.linkedin.com/company/opensource-programming-club-vitc/",
     role: "Design & Content Lead",
     start: "December 2024",
@@ -36,7 +36,7 @@ export const clubLeadership: ActivityEntry[] = [
     ],
   },
   {
-    org: "Open Source Programming Club, VIT Chennai",
+    org: "Open Source Programming Club, VIT",
     orgUrl: "https://www.linkedin.com/company/opensource-programming-club-vitc/",
     role: "Web Development Member",
     start: "October 2024",
@@ -46,14 +46,14 @@ export const clubLeadership: ActivityEntry[] = [
 
 export const collegeActivities: ActivityEntry[] = [
   {
-    org: "TechnoVIT'25, VIT Chennai",
+    org: "TechnoVIT'25, VIT",
     role: "Committee Coordinator",
     start: "",
     end: "2025",
     detail: [],
   },
   {
-    org: "Centre for Skill & Entrepreneurship Development (CSED), VIT Chennai",
+    org: "Centre for Skill & Entrepreneurship Development (CSED), VIT",
     role: "HR Rep.",
     start: "",
     end: "",
@@ -63,7 +63,7 @@ export const collegeActivities: ActivityEntry[] = [
 
 export const communityUniversity: ActivityEntry[] = [
   {
-    org: "Microsoft Innovations Club, VIT Chennai",
+    org: "Microsoft Innovations Club, VIT",
     role: "Management Member",
     start: "October 2024",
     end: "July 2025",
@@ -73,14 +73,14 @@ export const communityUniversity: ActivityEntry[] = [
     ],
   },
   {
-    org: "Arignar Anna Thamizh Mandram, VIT Chennai",
+    org: "Arignar Anna Thamizh Mandram, VIT",
     role: "Graphic Designer",
     start: "",
     end: "",
     detail: [],
   },
   {
-    org: "Rotaract Club of VIT Chennai",
+    org: "Rotaract Club of VIT",
     role: "Rotaractor",
     start: "July 2025",
     end: "Present",

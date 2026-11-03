@@ -155,7 +155,7 @@ export const projects: Project[] = [
     achievement: {
       rank: "1st Place",
       event: "HackHub'25",
-      organizer: "IEEE CompSoc VIT-C, GitHub & Devfolio",
+      organizer: "IEEE CompSoc VIT, GitHub & Devfolio",
       year: "2025",
     },
     cover: {
@@ -201,7 +201,7 @@ export const projects: Project[] = [
       {
         heading: "Outcome",
         body: [
-          "Placed 1st out of 500 teams that entered HackHub'25, with 60 reaching the final round, as Team Perry the Platypus (with Prannavakhanth A and Lohita Lakshmi L.S), judged by IEEE Computer Society VIT Chennai with GitHub and Devfolio as sponsors.",
+          "Placed 1st out of 500 teams that entered HackHub'25, with 60 reaching the final round, as Team Perry the Platypus (with Prannavakhanth A and Lohita Lakshmi L.S), judged by IEEE Computer Society VIT with GitHub and Devfolio as sponsors.",
         ],
       },
     ],

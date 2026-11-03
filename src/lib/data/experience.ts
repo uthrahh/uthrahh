@@ -31,8 +31,6 @@ export const experience: ExperienceItem[] = [
     // e.g. "On-site", "Remote", "Hybrid".
     workMode: "On-site",
 
-    city: "<City>",
-
     // Short duration label shown on the card, e.g. "3mo", "6mo", "1yr".
     duration: "<3mo>",
 
@@ -100,7 +98,6 @@ export const experience: ExperienceItem[] = [
     role: "Data Engineer Intern",
     employmentType: "Internship",
     workMode: "On-site",
-    city: "Chennai",
     duration: "4mo",
     start: "July 2026",
     end: "October 2026",
@@ -178,7 +175,6 @@ export const experience: ExperienceItem[] = [
     role: "Software Development Engineer Intern",
     employmentType: "Internship",
     workMode: "On-site",
-    city: "Chennai",
     duration: "1mo",
     start: "May 2026",
     end: "June 2026",

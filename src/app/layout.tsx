@@ -8,6 +8,7 @@ import { ProjectModalProvider } from "@/components/ProjectModalProvider";
 import { ResumeModalProvider } from "@/components/ResumeModalProvider";
 import { SmoothScroll } from "@/components/story/SmoothScroll";
 import { StoryChrome } from "@/components/story/StoryChrome";
+import { Cursor } from "@/components/story/Cursor";
 import { site } from "@/lib/data/site";
 
 const archivo = Archivo({
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     "Delta Lake",
     "Databricks",
     "Power BI",
-    "VIT Chennai",
+    "VIT",
   ],
   authors: [{ name: site.name, url: site.github }],
   alternates: { canonical: siteUrl },
@@ -72,7 +73,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <ProjectModalProvider>
             <CommandPaletteProvider>
               <RevealObserver />
-              <SmoothScroll chrome={<StoryChrome />}>
+              <SmoothScroll
+                chrome={
+                  <>
+                    <StoryChrome />
+                    <Cursor />
+                  </>
+                }
+              >
                 <main>{children}</main>
                 <div className="night bg-paper">
                   <Footer />

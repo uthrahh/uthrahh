@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,17 +9,17 @@ import { useScrollReady } from "./SmoothScroll";
 import { useCommandPalette } from "@/components/CommandPalette";
 import { useResumeModal } from "@/components/ResumeModalProvider";
 import { SearchIcon } from "@/components/icons";
-import { scrollToId } from "@/lib/scroll";
+import { getScrollY, scrollToId } from "@/lib/scroll";
 import { site } from "@/lib/data/site";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const CHAPTERS = [
   { id: "home", n: "01", label: "The story" },
-  { id: "projects", n: "02", label: "The street" },
-  { id: "skills", n: "03", label: "The pipeline" },
+  { id: "projects", n: "02", label: "The project book" },
+  { id: "skills", n: "03", label: "The toolkit" },
   { id: "under-the-hood", n: "04", label: "Under the hood" },
-  { id: "missions", n: "05", label: "Missions" },
+  { id: "missions", n: "05", label: "Work with me" },
   { id: "contact", n: "06", label: "Contact" },
 ] as const;
 
@@ -29,45 +29,33 @@ function useChapter(ready: boolean) {
   useEffect(() => {
     if (!ready) return;
     const els = CHAPTERS.map((c) => document.getElementById(c.id));
-    const triggers = els.map((el, i) => {
-      if (!el) return null;
-      const next = els[i + 1];
-      return ScrollTrigger.create({
-        trigger: el,
-        start: "top 60%",
-        endTrigger: next ?? el,
-        end: next ? "top 60%" : "bottom bottom",
-        onToggle: (self) => {
-          if (self.isActive) setActive(i);
-        },
+    // Pinned sections sit inside a pin-spacer; that wrapper is what holds the
+    // section's place in the page.
+    const anchors = els.map((el) => el?.closest(".pin-spacer") ?? el);
+
+    const update = () => {
+      const y = getScrollY();
+      const line = y + window.innerHeight * 0.6;
+      let current = 0;
+      anchors.forEach((a, i) => {
+        if (!a) return;
+        if (a.getBoundingClientRect().top + y <= line) current = i;
       });
-    });
-    return () => triggers.forEach((t) => t?.kill());
+      setActive((cur) => (cur === current ? cur : current));
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    ScrollTrigger.addEventListener("refresh", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+      ScrollTrigger.removeEventListener("refresh", update);
+    };
   }, [ready]);
 
   return active;
-}
-
-function Clock() {
-  const [time, setTime] = useState("--:--");
-  useEffect(() => {
-    const fmt = new Intl.DateTimeFormat("en-GB", {
-      timeZone: "Asia/Kolkata",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    });
-    const tick = () => setTime(fmt.format(new Date()));
-    tick();
-    const id = window.setInterval(tick, 20_000);
-    return () => window.clearInterval(id);
-  }, []);
-  return (
-    <span className="hidden items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-[#bdb8ab] lg:flex">
-      <span className="soft-pulse h-1.5 w-1.5 rounded-full bg-[#2f9e57]" />
-      Chennai {time}
-    </span>
-  );
 }
 
 export function StoryChrome() {
@@ -81,13 +69,30 @@ export function StoryChrome() {
   const onHome = pathname === "/";
   const goTo = (id: string) => (onHome ? scrollToId(id) : router.push(`/#${id}`));
 
+  const bar = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMac(/Mac|iPhone|iPad/.test(navigator.platform));
   }, []);
 
+  useEffect(() => {
+    const update = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (bar.current) bar.current.style.transform = `scaleX(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
   return (
     <>
+      <div ref={bar} className="scroll-progress" aria-hidden="true" />
       <div className="loader" aria-hidden="true">
         <CatMark className="loader__mark h-20 w-20" />
         <p className="mt-6 font-mono text-[12px] uppercase tracking-[0.3em] text-[#16130f]">git checkout both-sides</p>
@@ -115,6 +120,7 @@ export function StoryChrome() {
             {[
               { id: "home", label: "Index", idx: 0 },
               { id: "projects", label: "Work", idx: 1 },
+              { id: "missions", label: "Hire me", idx: 4 },
               { id: "contact", label: "Contact", idx: 5 },
             ].map((l) => (
               <li key={l.id}>
@@ -132,7 +138,6 @@ export function StoryChrome() {
             ))}
           </ul>
           <span aria-hidden="true" className="mx-1 hidden h-5 w-px bg-[#f4f1ea]/15 md:block" />
-          <Clock />
           <button
             type="button"
             onClick={openPalette}

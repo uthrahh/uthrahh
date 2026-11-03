@@ -1,6 +1,17 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
+/** Text that rises out of a mask when its parent `[data-mask]` scrolls into view. */
+export function Mask({ children, delay = 0 }: { children: ReactNode; delay?: number }) {
+  return (
+    <span className="mask">
+      <span className="mask__in" style={{ transitionDelay: `${delay}ms` }}>
+        {children}
+      </span>
+    </span>
+  );
+}
+
 export function Tag({ children }: { children: ReactNode }) {
   return (
     <span className="inline-flex items-center rounded-full border border-border px-2.5 py-0.5 font-mono text-[11px] uppercase tracking-wide text-ink-muted">
@@ -34,8 +45,11 @@ export function SectionHeading({
         {index ? (
           <span className="font-mono text-sm font-medium text-accent-strong">{index}</span>
         ) : null}
-        <h2 className="shrink-0 text-[1.7rem] font-black uppercase leading-none tracking-tight text-ink sm:text-[2.1rem]">
-          {heading}
+        <h2
+          data-mask=""
+          className="shrink-0 text-[clamp(1.9rem,4.6vw,3.4rem)] font-black uppercase leading-none tracking-tight text-ink"
+        >
+          <Mask>{heading}</Mask>
         </h2>
         <span aria-hidden="true" className="relative hidden h-px flex-1 bg-border-strong sm:block">
           <span className="rule-dot absolute top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-strong" />

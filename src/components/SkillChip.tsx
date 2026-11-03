@@ -13,13 +13,14 @@ const MAX_VISIBLE = 4;
  * panel caps at a few entries plus a "+N more" note, so it stays a small
  * hovercard rather than growing into a full project list.
  */
-export function SkillChip({ skill }: { skill: string }) {
+export function SkillChip({ skill, compact = false }: { skill: string; compact?: boolean }) {
+  const size = compact ? "text-[12px]" : "text-[14px]";
   const usage = getSkillUsage(skill);
   const [open, setOpen] = useState(false);
   const panelId = useId();
 
   if (!usage.length) {
-    return <span className="text-[14px] text-ink">{skill}</span>;
+    return <span className={`${size} text-ink`}>{skill}</span>;
   }
 
   return (
@@ -32,7 +33,7 @@ export function SkillChip({ skill }: { skill: string }) {
         onMouseLeave={() => setOpen(false)}
         onFocus={() => setOpen(true)}
         onBlur={() => setOpen(false)}
-        className="cursor-default text-[14px] text-ink no-underline outline-none transition-colors hover:text-accent-strong focus-visible:text-accent-strong"
+        className={`cursor-default ${size} text-ink no-underline outline-none transition-colors hover:text-accent-strong focus-visible:text-accent-strong`}
       >
         {skill}
       </button>

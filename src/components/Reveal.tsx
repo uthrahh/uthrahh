@@ -33,7 +33,7 @@ export function RevealObserver() {
 
     const observeAll = () =>
       document
-        .querySelectorAll("[data-reveal]:not(.is-visible)")
+        .querySelectorAll("[data-reveal]:not(.is-visible), [data-mask]:not(.is-visible)")
         .forEach((el) => io.observe(el));
 
     observeAll();

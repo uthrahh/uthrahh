@@ -72,14 +72,14 @@ export const education: EducationEntry[] = [
   // END TEMPLATE — real education entries start below
   // ============================================================
   {
-    institution: "Vellore Institute of Technology (VIT), Chennai",
+    institution: "Vellore Institute of Technology (VIT)",
     institutionUrl: "https://chennai.vit.ac.in/",
     degree: "B.Tech. in Computer Science and Engineering",
     start: "2023",
     end: "May 2027",
     activities: [
       { label: "Chairperson - Open Source Programming Club", history: clubLeadership },
-      { label: "Rotaractor - Rotaract Club of VIT-C" },
+      { label: "Rotaractor - Rotaract Club of VIT" },
       { label: "Committee Coordinator - TechnoVIT'25" },
       { label: "Organizer - Spectrum'25, VOID.v1, Glytch'25" },
       { label: "HR Rep. - Centre for Skill & Entrepreneurship Development (CSED)" },
@@ -96,14 +96,14 @@ export const education: EducationEntry[] = [
       "Data Analytics",
     ],
     photos: [
-      { kind: "event", src: "/vit-photo-1.jpeg", alt: "VIT Chennai University Day 2026", aspect: "4/3" },
-      { kind: "event", src: "/vit-photo-3.jpeg", alt: "GlitchCon hackathon at VIT Chennai", aspect: "4/3" },
-      { kind: "event", src: "/vit-photo-4.jpeg", alt: "Spectrum hackathon at VIT Chennai", aspect: "4/3" },
-      { kind: "event", src: "/vit-photo-5.jpeg", alt: "Open Source Programming Club members at VIT Chennai", aspect: "4/3" },
+      { kind: "event", src: "/vit-photo-1.jpeg", alt: "VIT University Day 2026", aspect: "4/3" },
+      { kind: "event", src: "/vit-photo-3.jpeg", alt: "GlitchCon hackathon at VIT", aspect: "4/3" },
+      { kind: "event", src: "/vit-photo-4.jpeg", alt: "Spectrum hackathon at VIT", aspect: "4/3" },
+      { kind: "event", src: "/vit-photo-5.jpeg", alt: "Open Source Programming Club members at VIT", aspect: "4/3" },
     ],
   },
   {
-    institution: "St. Michael's Academy, Chennai",
+    institution: "St. Michael's Academy",
     institutionUrl: "https://www.st-michaelsacademy.com/#",
     degree: "High School Diploma",
     end: "Graduated 2023",

@@ -272,20 +272,20 @@ export function Story() {
         <div className="pointer-events-none absolute inset-x-0 top-[13%] z-10 font-black uppercase leading-none tracking-tight text-[clamp(1.5rem,3.2vw,3.3rem)]">
           <div className="story__l1 flex">
             <div className="w-1/2 pr-5 text-right text-[#16130f]">
-              Every <span className="text-[#ff6a13]">product</span>
+              Heads: <span className="text-[#ff6a13]">apps.</span>
               <span className="mt-3 ml-auto block h-px w-1/3 bg-[#16130f]/40" />
             </div>
             <div className="w-1/2 pl-5 text-left text-[#f4f1ea]">
-              Has two <span className="text-[#ffb547]">sides…</span>
+              Tails: <span className="text-[#ffb547]">data.</span>
               <span className="mt-3 block h-px w-1/3 bg-[#f4f1ea]/40" />
             </div>
           </div>
           <SplitLine className="story__l2 absolute inset-x-0 top-0">
-            The app. <span className="text-[#ff6a13]">The data.</span>
+            One <span className="text-[#ff6a13]">coin.</span>
           </SplitLine>
-          <SplitLine className="story__l3 absolute inset-x-0 top-0">Most engineers pick a side.</SplitLine>
+          <SplitLine className="story__l3 absolute inset-x-0 top-0">Most engineers call a side.</SplitLine>
           <SplitLine className="story__l4 absolute inset-x-0 top-0">
-            This one checked out <span className="text-[#ff6a13]">both branches.</span>
+            This one lands on <span className="text-[#ff6a13]">both.</span>
           </SplitLine>
         </div>
 
@@ -314,7 +314,7 @@ export function Story() {
 
         <div className="story__caption absolute bottom-[5%] left-1/2 z-10 -translate-x-1/2">
           <span className="whitespace-nowrap rounded-md bg-[#f4f1ea] px-5 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-[#16130f] shadow-[0_8px_30px_-10px_rgba(0,0,0,0.6)]">
-            Data engineer + freelance app developer · Chennai
+            Data engineer + freelance app developer
           </span>
         </div>
       </div>
@@ -322,10 +322,12 @@ export function Story() {
       {/* Mobile / reduced motion: the same story, laid out statically */}
       <div className="story-static bg-paper px-[var(--gut)] pb-16 pt-28">
         <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink-faint">
-          {site.name} · Chennai
+          {site.name}
         </p>
         <p className="mt-4 text-[clamp(2rem,9vw,3.4rem)] font-black uppercase leading-[0.95] tracking-tight text-ink">
-          Every product has <span className="text-accent-strong">two sides.</span>
+          Heads: apps.
+          <br />
+          Tails: <span className="text-accent-strong">data.</span>
         </p>
         <p className="mt-5 max-w-md text-ink-muted">{site.tagline}</p>
         <div className="my-8 flex justify-center">

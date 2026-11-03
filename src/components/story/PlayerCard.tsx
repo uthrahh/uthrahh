@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { Container } from "@/components/Container";
+import { Mask } from "@/components/ui";
 import { EmailCopy } from "@/components/EmailCopy";
 import { ProtectedPhoto } from "@/components/ProtectedPhoto";
 import { SkillChip } from "@/components/SkillChip";
@@ -71,6 +72,21 @@ function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
 export function PlayerCard() {
   const [side, setSide] = useState<Side>("data");
   const openResume = useResumeModal();
+  const card = useRef<HTMLElement>(null);
+
+  const tilt = (e: React.PointerEvent<HTMLElement>) => {
+    const el = card.current;
+    if (!el || e.pointerType !== "mouse" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - 0.5;
+    const py = (e.clientY - r.top) / r.height - 0.5;
+    gsap.to(el, { rotateY: px * 12, rotateX: -py * 10, transformPerspective: 1000, duration: 0.4, ease: "power3.out" });
+    el.style.setProperty("--gx", `${(px + 0.5) * 100}%`);
+    el.style.setProperty("--gy", `${(py + 0.5) * 100}%`);
+  };
+  const untilt = () => {
+    if (card.current) gsap.to(card.current, { rotateY: 0, rotateX: 0, duration: 0.7, ease: "elastic.out(1, 0.5)" });
+  };
   const current = SIDES[side];
   const loadout = current.categories.flatMap((c) => skills.find((g) => g.category === c)?.skills ?? []);
 
@@ -89,12 +105,22 @@ export function PlayerCard() {
           <span className="h-px w-10 bg-accent" />
           <span className="text-ink">Under the hood</span>
         </p>
-        <h2 data-reveal="" className="mt-5 max-w-3xl text-[clamp(2.2rem,6vw,4.6rem)] font-black uppercase leading-[0.95] tracking-tight text-ink">
-          Who&apos;s behind <span className="text-accent-strong">the commits?</span>
+        <h2 data-mask="" className="mt-5 max-w-3xl text-[clamp(2.2rem,6vw,4.6rem)] font-black uppercase leading-[0.95] tracking-tight text-ink">
+          <Mask>Who&apos;s behind</Mask>
+          <Mask delay={120}>
+            <span className="text-accent-strong">the commits?</span>
+          </Mask>
         </h2>
 
         <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,400px)_1fr] lg:gap-14">
-          <article data-reveal="" className="relative self-start rounded-[28px] border-[3px] border-ink bg-paper-raised shadow-[10px_10px_0_var(--ink)]">
+          <article
+            ref={card}
+            onPointerMove={tilt}
+            onPointerLeave={untilt}
+            data-reveal=""
+            className="player-card relative self-start rounded-[28px] border-[3px] border-ink bg-paper-raised shadow-[10px_10px_0_var(--ink)]"
+          >
+            <span aria-hidden="true" className="player-card__glare pointer-events-none absolute inset-0 z-10 rounded-[24px]" />
             <div className="flex items-center justify-between rounded-t-[24px] bg-accent px-5 py-3 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-accent-ink">
               <span>Player 1</span>
               <span className="flex items-center gap-2">
@@ -116,7 +142,7 @@ export function PlayerCard() {
                 Freelance app developer
               </p>
               <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-faint">
-                Chennai · B.Tech CSE · VIT · 2027
+                B.Tech CSE · VIT · 2027
               </p>
             </div>
           </article>
@@ -134,7 +160,7 @@ export function PlayerCard() {
                 habits I bring to pipelines: tests first, everything observable.
               </p>
               <p>
-                Final-year CSE at VIT Chennai, chairperson of the Open Source Programming Club (250+ members), and 1st of 500
+                Final-year CSE at VIT, chairperson of the Open Source Programming Club (250+ members), and 1st of 500
                 teams at HackHub&apos;25.
               </p>
             </div>

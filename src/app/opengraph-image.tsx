@@ -4,7 +4,7 @@ import { site } from "@/lib/data/site";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// Social preview card: the "two sides" split, paper on the left, night on the right.
+// Social preview card: the coin: apps on one side, data on the other, paper on the left, night on the right.
 export default function OGImage() {
   return new ImageResponse(
     (
@@ -39,7 +39,7 @@ export default function OGImage() {
             </div>
             <div style={{ display: "flex", fontSize: 32, color: "#f4f1ea", marginTop: 22, maxWidth: 760, lineHeight: 1.35, background: "#ff6a13", padding: "10px 18px" }}>
               <span style={{ display: "flex", color: "#16130f", fontWeight: 700 }}>
-                Every product has two sides.
+                Heads: apps. Tails: data.
               </span>
             </div>
           </div>

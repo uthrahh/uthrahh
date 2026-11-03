@@ -90,7 +90,6 @@ export type ExperienceItem = {
   role: string;
   employmentType: string;
   workMode: string;
-  city: string;
   duration: string;
   start: string;
   end: string;

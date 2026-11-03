@@ -85,7 +85,7 @@ export function EducationSection() {
   return (
     <Section id="education" className="border-y border-border bg-paper-sunken/40">
       <Container>
-        <SectionHeading index="04.2" title="Education" caption="VIT Chennai, class of 2027" />
+        <SectionHeading index="04.2" title="Education" caption="VIT, class of 2027" />
 
         <div className="mt-10 space-y-5">
           {/* University */}
