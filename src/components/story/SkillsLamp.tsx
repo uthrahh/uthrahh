@@ -5,10 +5,14 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { SkillChip } from "@/components/SkillChip";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { useScrollReady } from "./SmoothScroll";
 import { skills } from "@/lib/data/skills";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
+
+// How much scrolling one hop of the lamp costs, in viewport heights.
+const HOP_VH = 0.3;
 
 const PINNED = "(min-width: 768px) and (prefers-reduced-motion: no-preference)";
 
@@ -157,6 +161,24 @@ export function SkillsLamp() {
   });
   const n = groups.length;
 
+  const scrollY = (y: number) => {
+    const smoother = ScrollSmoother.get();
+    if (smoother) smoother.scrollTo(y, true);
+    else window.scrollTo({ top: y, behavior: "smooth" });
+  };
+  /** Send the lamp straight to skill set `i`. */
+  const hopTo = (i: number) => {
+    const st = ScrollTrigger.getById("skills-lamp");
+    if (!st) return;
+    setMode("tour");
+    scrollY(st.start + (i / (n - 1)) * (st.end - st.start));
+  };
+  /** Leave the toolkit without scrolling through every set. */
+  const skip = () => {
+    const st = ScrollTrigger.getById("skills-lamp");
+    if (st) scrollY(st.end + 2);
+  };
+
   useEffect(() => {
     const el = stage.current;
     if (!el) return;
@@ -187,14 +209,15 @@ export function SkillsLamp() {
         const tl = gsap.timeline({
           defaults: { ease: "none" },
           scrollTrigger: {
+            id: "skills-lamp",
             trigger: root.current,
             start: "top top",
-            end: () => "+=" + (n - 1) * window.innerHeight * 0.6,
+            end: () => "+=" + (n - 1) * window.innerHeight * HOP_VH,
             pin: true,
-            scrub: 0.5,
+            scrub: 0.4,
             anticipatePin: 1,
             invalidateOnRefresh: true,
-            snap: { snapTo: 1 / (n - 1), duration: { min: 0.25, max: 0.7 }, delay: 0.08, ease: "power2.inOut" },
+            snap: { snapTo: 1 / (n - 1), duration: { min: 0.15, max: 0.4 }, delay: 0.04, ease: "power2.inOut" },
             onUpdate: (self) => {
               const t = self.progress * (n - 1);
               const idx = Math.min(n - 1, Math.floor(t + 0.5));
@@ -271,8 +294,17 @@ export function SkillsLamp() {
               <span className="text-[#ff6a13]">at a time.</span>
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-[#bdb8ab]">
-              Scroll and the lamp hops to the next set. Hover a skill to see the projects it went into.
+              Scroll a little and the lamp hops to the next set, or click any set to send it there. Hover a skill to see the
+              projects it went into.
             </p>
+            <button
+              type="button"
+              onClick={skip}
+              data-cursor="Skip"
+              className="mt-5 inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#ffb547] transition-colors hover:text-[#ff6a13]"
+            >
+              Skip toolkit <span aria-hidden="true">↓</span>
+            </button>
           </div>
           <div className="absolute bottom-[40px] left-0">
             <SideFilter mode={mode} onChange={setMode} />
@@ -286,7 +318,9 @@ export function SkillsLamp() {
               <div
                 key={g.category}
                 data-lit={lit}
-                className="skillcard absolute border-2 bg-[#161b23] p-4"
+                data-cursor="Hop here"
+                onClick={() => hopTo(i)}
+                className="skillcard absolute cursor-pointer border-2 bg-[#161b23] p-4"
                 style={{ left: COL_X[i % 3], top: ROW_Y[Math.floor(i / 3)], width: CARD_W, height: CARD_H }}
               >
                 <div className="flex items-baseline justify-between gap-3">
