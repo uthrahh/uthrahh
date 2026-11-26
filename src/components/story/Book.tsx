@@ -19,6 +19,9 @@ import type { Project } from "@/lib/types";
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
 
 const PINNED = "(min-width: 768px) and (prefers-reduced-motion: no-preference)";
+
+// How much scrolling one page turn costs, in viewport heights.
+const TURN_VH = 0.3;
 const PAGE_W = 480;
 const PAGE_H = 620;
 
@@ -269,6 +272,15 @@ export function Book() {
     else window.scrollTo({ top: y, behavior: "smooth" });
   };
   const jump = (j: number) => goToSpread(j + 2);
+  /** Leave the book without turning every page. */
+  const skip = () => {
+    const st = ScrollTrigger.getById("book");
+    if (!st) return;
+    const y = st.end + 2;
+    const smoother = ScrollSmoother.get();
+    if (smoother) smoother.scrollTo(y, true);
+    else window.scrollTo({ top: y, behavior: "smooth" });
+  };
   const turn = (dir: 1 | -1) => goToSpread(spread.current + dir);
 
   useEffect(() => {
@@ -333,13 +345,13 @@ export function Book() {
             id: "book",
             trigger: root,
             start: "top top",
-            end: () => "+=" + L * window.innerHeight * 0.7,
+            end: () => "+=" + L * window.innerHeight * TURN_VH,
             pin: true,
-            scrub: 0.5,
+            scrub: 0.4,
             anticipatePin: 1,
             invalidateOnRefresh: true,
             onRefreshInit: fit,
-            snap: { snapTo: 1 / L, duration: { min: 0.25, max: 0.7 }, delay: 0.08, ease: "power2.inOut" },
+            snap: { snapTo: 1 / L, duration: { min: 0.15, max: 0.4 }, delay: 0.04, ease: "power2.inOut" },
             onUpdate: (self) => apply(self.progress * L),
           },
         });
@@ -419,6 +431,14 @@ export function Book() {
         </p>
 
         <div className="absolute bottom-5 right-[var(--gut)] z-20 flex items-center gap-3">
+          <button
+            type="button"
+            onClick={skip}
+            data-cursor="Skip"
+            className="mr-1 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[#16130f]/70 transition-colors hover:text-[#c2450a]"
+          >
+            Skip book <span aria-hidden="true">↓</span>
+          </button>
           <button
             ref={prevBtn}
             type="button"
